@@ -574,55 +574,91 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
 }
 
 /* =======================================================
-   📱 THE ULTIMATE NATIVE APP ENGINE (Swiggy/Zepto Mobile)
+   📱 ZEPTO/SWIGGY NATIVE APP ENGINE (V2 - ULTRA SLEEK)
    ======================================================= */
-
 @media (max-width: 768px) {
     body, html { overflow-x: hidden; width: 100%; }
+    .main-wrapper { margin: 15px auto !important; padding: 0 15px !important; }
 
-    /* 1. FIX THE HEADER & SEARCH */
-    .header-content { flex-direction: column !important; gap: 15px !important; padding: 15px !important; }
-    .ultra-actions { width: 100%; justify-content: center; gap: 20px; margin-top: 10px; }
-    .ultra-search { width: 100% !important; max-width: 100% !important; }
-    .ultra-search input { font-size: 14px !important; }
-
-    /* 2. FIX THE MEGA BANNER */
-    .mega-hero-container { height: 350px !important; border-radius: 20px !important; }
-    .mega-slide { padding: 20px !important; text-align: center; justify-content: center; }
-    .mega-content h2 { font-size: 32px !important; line-height: 1.2 !important; }
-    .mega-content p { font-size: 14px !important; }
-    .mega-btn { padding: 12px 24px !important; font-size: 15px !important; }
-
-    /* 3. NATIVE SWIPING FOR BENTO TILES */
-    .bento-tiles-grid { display: flex !important; overflow-x: auto !important; scroll-snap-type: x mandatory; padding-bottom: 15px; }
-    .bento-tiles-grid::-webkit-scrollbar { display: none; }
-    .bento-tile { min-width: 130px !important; scroll-snap-align: start; }
-
-    /* 4. CRUSH GRIDS INTO SINGLE COLUMNS (Zomato Style) */
-    .dish-grid, .offers-grid, .restaurant-grid, .footer-grid-strict {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
+    /* 1. APP HEADER: Compact & Sticky (Search drops to row 2) */
+    .ultra-header { padding: 10px 0 !important; border-bottom: none !important; }
+    .header-content { flex-direction: row !important; flex-wrap: wrap !important; padding: 0 15px !important; gap: 10px !important; }
+    .logo-link { flex: 1 !important; }
+    .logo { font-size: 20px !important; }
+    .icon-wrapper { width: 35px !important; height: 35px !important; font-size: 18px !important; }
+    .ultra-actions { gap: 12px !important; }
+    .icon-btn { width: 36px !important; height: 36px !important; font-size: 16px !important; }
+    
+    /* ZEPTO SEARCH BAR: Full width, app-style */
+    .ultra-search { 
+        width: 100% !important; 
+        order: 3 !important; /* Forces it under the logo */
+        padding: 12px 15px !important; 
+        border-radius: 12px !important; 
+        margin-top: 5px !important; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
     }
+    .ultra-search input { font-size: 14px !important; }
+    
+    /* 2. HERO BANNER: Compact App Promo */
+    .mega-hero-container { height: 180px !important; border-radius: 16px !important; margin-bottom: 25px !important; }
+    .mega-slide { padding: 20px !important; }
+    .mega-content h2 { font-size: 22px !important; margin-bottom: 5px !important; }
+    .mega-content p { display: none !important; } /* Hide long text on mobile */
+    .mega-btn { padding: 8px 16px !important; font-size: 13px !important; border-radius: 8px !important; }
 
-    /* 5. FIX THE RESTAURANT MENU PAGE */
-    .rest-hero-content { flex-direction: column !important; text-align: center !important; gap: 15px !important; margin-top: -30px !important; }
-    .rest-hero-logo { width: 100px !important; height: 100px !important; margin: 0 auto !important; }
-    .rest-info-secondary { align-items: center !important; }
-    .menu-split-container { flex-direction: column !important; gap: 20px !important; }
-    .menu-sidebar { width: 100% !important; position: static !important; border-right: none !important; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
-    .menu-item-row { flex-direction: column-reverse !important; align-items: center !important; text-align: center !important; }
-    .item-image-part { width: 100% !important; }
-    .item-image-part img { width: 100% !important; height: 220px !important; }
+    /* 3. CATEGORY ICONS (Zepto Style - Small, Swipeable) */
+    .cravix-bento-tiles-section { margin-bottom: 25px !important; }
+    .bento-tiles-grid { 
+        display: flex !important; 
+        overflow-x: auto !important; 
+        scroll-snap-type: x mandatory; 
+        gap: 12px !important; 
+        padding-bottom: 10px !important; 
+    }
+    .bento-tiles-grid::-webkit-scrollbar { display: none; }
+    .bento-tile { 
+        min-width: 85px !important; 
+        padding: 10px !important; 
+        border-radius: 16px !important; 
+        gap: 8px !important; 
+        box-shadow: none !important; 
+        border: 1px solid var(--border-color) !important;
+    }
+    .bento-tile img { height: 60px !important; border-radius: 10px !important; }
+    .bento-tile h4 { font-size: 12px !important; }
 
-    /* 6. FIX CART, CHECKOUT & PROFILE PAGES */
+    /* 4. DISHES / ITEMS GRID (Zepto 2-Column Look!) */
+    .cravix-dish-grid-section { margin-bottom: 30px !important; }
+    .dish-grid { 
+        display: grid !important; 
+        grid-template-columns: repeat(2, 1fr) !important; /* Perfect 2-column grid */
+        gap: 12px !important; 
+    }
+    .dish-card { border-radius: 12px !important; }
+    .dish-img-wrapper { height: 120px !important; }
+    .dish-info { padding: 12px !important; }
+    .title-row h3 { font-size: 13px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80%; }
+    .dish-restaurant { font-size: 11px !important; }
+    
+    /* 5. RESTAURANTS GRID (Vertical Clean List) */
+    .brands-section { margin-bottom: 30px !important; }
+    .restaurant-grid { display: flex !important; flex-direction: column !important; gap: 15px !important; }
+    .rest-card { padding: 12px !important; border-radius: 12px !important; gap: 15px !important;}
+    .rest-img { width: 60px !important; height: 60px !important; }
+    .rest-details h4 { font-size: 16px !important; margin-bottom: 2px !important;}
+    .rest-desc { font-size: 12px !important; }
+
+    /* 6. CLEAN UP FOOTER FOR APP FEEL */
+    .cravix-footer { padding: 30px 15px 20px !important; }
+    .footer-grid-strict { grid-template-columns: 1fr !important; gap: 25px !important; text-align: left !important; }
+    .foot-col { text-align: left !important; }
+    .footer-logo { font-size: 24px !important; }
+    .footer-desc { font-size: 13px !important; }
+    .footer-bottom-line { padding-top: 20px !important; }
+    
+    /* 7. PROFILE & CHECKOUT FIXES */
     .checkout-grid, .order-track-grid, .profile-grid { flex-direction: column !important; }
     .checkout-right, .status-sidebar, .profile-sidebar { width: 100% !important; position: static !important; }
     .address-content { grid-template-columns: 1fr !important; }
-    .main-wrapper { margin: 20px auto !important; }
-
-    /* 7. FIX THE FOOTER */
-    .foot-col { text-align: center !important; }
-    .footer-desc { padding-right: 0 !important; }
-    .cravix-footer { padding: 40px 0 20px !important; }
 }
