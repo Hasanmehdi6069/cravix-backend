@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/Order');
-const verifyToken = require('../middleware/verifyToken'); // 🟢 THE BOUNCER
+const verifyToken = require('../Middleware/verifyToken'); // 🟢 THE BOUNCER
 
 // 🟢 PROTECTED ROUTE: Place a New Order
 router.post('/place', verifyToken, async (req, res) => {
