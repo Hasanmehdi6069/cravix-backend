@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 🚀 THE MASTER CLOUD CONFIGURATION
     // Change this to your live Render/Railway URL when deploying!
     // =========================================================
-    const API_BASE_URL = 'http://localhost:5000';
+    const API_BASE_URL = 'https://cravix-backend-1.onrender.com';
     
     // --- 1. PREMIUM THEME ENGINE ---
     const themeToggle = document.getElementById('themeToggle');
