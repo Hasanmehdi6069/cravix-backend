@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Cravix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="ultra-body checkout-bg">
+
+    <header class="ultra-header">
+        <div class="header-content checkout-header">
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">
+                    <span class="icon-wrapper">🍽️</span>
+                    <span class="crav">CRAV</span><span class="ix-food">IX</span>
+                </h1>
+            </a>
+            <div class="secure-checkout-tag">
+                <span>🔒</span> Secure Checkout
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-wrapper">
+        <div class="checkout-grid">
+            
+            <div class="checkout-left">
+                
+                <div class="checkout-bento step-completed">
+                    <div class="step-header">
+                        <div class="step-icon">👤</div>
+                        <div class="step-title">
+                            <h3>Account</h3>
+                            <p>Cravix Member | +91 98765 43210</p>
+                        </div>
+                        <div class="step-action">✓</div>
+                    </div>
+                </div>
+
+                <div class="checkout-bento step-active">
+                    <div class="step-header">
+                        <div class="step-icon">📍</div>
+                        <div class="step-title">
+                            <h3>Delivery Address</h3>
+                        </div>
+                        <button class="add-new-address-btn">ADD NEW +</button>
+                    </div>
+                    <div class="step-content address-content">
+                        <div class="address-card active-address">
+                            <span class="address-tag">Home</span>
+                            <h4>Elite Founder</h4>
+                            <p>123, Cravix Tech Park, Silicon Avenue, Block B</p>
+                            <p>New Delhi, 110001</p>
+                            <button class="deliver-here-btn">Deliver Here</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-bento">
+                    <div class="step-header">
+                        <div class="step-icon">💳</div>
+                        <div class="step-title">
+                            <h3>Payment Options</h3>
+                        </div>
+                    </div>
+                    <div class="step-content payment-content">
+                        <div class="payment-accordion active-pay">
+                            <div class="pay-header">
+                                <span class="pay-logo"><img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/upi_logo_icon_169316.png" alt="UPI Logo"></span>
+                                <h4>(Google Pay, PhonePe, Paytm)</h4>
+                                <input type="radio" name="payment" checked>
+                            </div>
+                            <div class="pay-details">
+                                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Pay instantly using your favorite UPI app.</p>
+                                <button class="pay-now-btn">Pay ₹598 via UPI</button>
+                            </div>
+                        </div>
+
+                        <div class="payment-accordion">
+                            <div class="pay-header">
+                                <span class="pay-logo">💳</span>
+                                <h4>Credit / Debit Card</h4>
+                                <input type="radio" name="payment">
+                            </div>
+                            <div class="pay-details">
+                                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">We accept Visa, Mastercard, RuPay, and American Express.</p>
+                                
+                                <input type="text" id="cardNumberInput" placeholder="Card Number (e.g. 4111 1111 1111 1111)" style="width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main); outline: none;" maxlength="19">
+                                
+                                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                    <input type="text" id="cardExpiryInput" placeholder="MM/YY" style="width: 50%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main); outline: none;" maxlength="5">
+                                    <input type="password" id="cardCvvInput" placeholder="CVV" style="width: 50%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main); outline: none;" maxlength="3">
+                                </div>
+                                
+                                <button class="pay-now-btn" id="securePayBtn" style="background: var(--primary);">Secure Pay</button>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-accordion">
+                            <div class="pay-header">
+                                <span class="pay-logo">💵</span>
+                                <h4>Cash on Delivery</h4>
+                                <input type="radio" name="payment">
+                            </div>
+                            <div class="pay-details">
+                                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px; font-weight: 500;">Pay by cash or UPI scanner when the delivery partner arrives at your doorstep.</p>
+                                <button class="pay-now-btn" id="confirmCodBtn">Confirm Order (COD)</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+            
+            <div class="checkout-right">
+                <div class="cart-summary-bento">
+                    
+                    <div class="restaurant-cart-header">
+                        <img src="https://tse4.mm.bing.net/th/id/OIP.cuT8f44iiICDTIAdw1Ns6gHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Burger King">
+                        <div>
+                            <h3>Burger King</h3>
+                            <p>Connaught Place • Delivery in 30 mins</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-items-list" id="dynamicCartItems">
+                        <!-- JS injects here -->
+                    </div>
+
+                    <div class="cooking-instructions" id="cartExtras1">
+                        <input type="text" placeholder="✍️ Any cooking instructions? (e.g. extra spicy)">
+                    </div>
+
+                    <div class="cart-offers" id="cartExtras2">
+                        <span class="offer-icon">🎟️</span>
+                        <div class="offer-text">
+                            <h4>Apply Coupon</h4>
+                            <p>Unlock exclusive discounts</p>
+                        </div>
+                        <span class="arrow-right">→</span>
+                    </div>
+
+                    <div class="bill-details" id="cartExtras3">
+                        <h4>Bill Details</h4>
+                        <div class="bill-row">
+                            <span>Item Total</span>
+                            <span id="dynamicItemTotal">₹0</span>
+                        </div>
+                        <div class="bill-row grand-total">
+                            <span>TO PAY</span>
+                            <span id="dynamicGrandTotal">₹0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+        
+        <!-- Address Modal -->
+        <div class="modal-overlay" id="addressModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Delivery Address</h3>
+                    <button class="close-modal-btn" id="closeAddressModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="newAddressName" placeholder="Full Name (e.g. John Doe)">
+                    <div style="display: flex; gap: 15px;">
+                        <input type="text" id="newAddressTag" placeholder="Tag (e.g. Home, Work)" style="width: 40%;">
+                        <input type="text" id="newPhone" placeholder="Mobile Number" style="width: 60%;">
+                    </div>
+                    <input type="text" id="newAddressLine1" placeholder="Flat, House no., Building, Company">
+                    <input type="text" id="newAddressLine2" placeholder="Area, Street, Sector, Village">
+                    <button class="save-address-btn" id="saveNewAddressBtn">Save Address & Proceed</button>
+                </div>
+            </div>
+        </div>
+    </main>
+          
+    <div id="order-success-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; justify-content: center; align-items: center; flex-direction: column; color: white; text-align: center; backdrop-filter: blur(8px);">
+        <div class="success-checkmark" style="width: 90px; height: 90px; background: #28a745; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; box-shadow: 0 0 30px rgba(40, 167, 69, 0.5); animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;">
+            <span style="font-size: 50px; color: white; font-weight: bold;">✓</span>
+        </div>
+        <h2 style="font-size: 32px; margin-bottom: 10px; animation: slideUp 0.5s ease-out 0.2s both;">Order Confirmed!</h2>
+        <p style="font-size: 18px; color: #ddd; animation: slideUp 0.5s ease-out 0.4s both;">Preparing your food... teleporting to radar.</p>
+        
+        <style>
+            @keyframes popIn { 
+                0% { transform: scale(0); opacity: 0; } 
+                100% { transform: scale(1); opacity: 1; } 
+            }
+            @keyframes slideUp { 
+                0% { transform: translateY(30px); opacity: 0; } 
+                100% { transform: translateY(0); opacity: 1; } 
+            }
+        </style>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cravix - The End of Perfection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="ultra-body">
+
+    
+    <header class="ultra-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">
+                    <span class="icon-wrapper">🍽️</span>
+                    <span class="crav">CRAV</span><span class="ix-food">IX</span>
+                </h1>
+            </a>
+            
+            <div class="ultra-search">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search for top brands, dishes..." readonly onfocus="this.removeAttribute('readonly');" autocomplete="off">
+            </div>
+
+            <div class="ultra-actions">
+                <label class="theme-switch" title="Toggle Dark Mode">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider"></span>
+                </label>
+                <button class="icon-btn" title="Favorites">❤️</button>
+               <button class="icon-btn" title="Cart" onclick="window.location.href='cart.html'">🛒<span class="cart-badge">2</span></button>
+               <button class="icon-btn profile-btn" title="Profile">👤</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        
+        <section class="mega-hero-container">
+            <div class="mega-slider" id="cravixMegaSlider">
+                
+                <div class="mega-slide active-mega" style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.9) 0%, rgba(255, 140, 0, 0.9) 100%), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop');">
+                    <div class="mega-content">
+                        <span class="mega-pill">🚀 Lightning Fast Delivery</span>
+                        <h2>Satisfy your cravings,<br><span class="mega-highlight">Instantly.</span></h2>
+                        <p>Explore the top brands and trending dishes near you.</p>
+                        <button class="mega-btn">Explore Menu</button>
+                    </div>
+                </div>
+
+                <div class="mega-slide" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%),url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2000&auto=format&fit=crop');">
+                    <div class="mega-content">
+                        <span class="mega-pill" style="background: #ffaa00; color: #111;">🔥 Deal of the Day</span>
+                        <h2 style="color: #ffaa00;">Delicious Margherita<br><span style="color: white;">Pizzas.</span></h2>
+                        <p>Cheesy, Crispy, Crave-worthy. Flat 50% Off.</p>
+                        <button class="mega-btn" style="background: #ffaa00; color: #111;">Order Pizza</button>
+                    </div>
+                </div>
+
+                <div class="mega-slide" style="background: linear-gradient(135deg, rgba(28, 35, 30, 0.95) 0%, rgba(15, 20, 15, 0.9) 100%), url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop');">
+                    <div class="mega-content">
+                        <span class="mega-pill" style="background: #28a745; color: white;">🥗 Fresh & Healthy</span>
+                        <h2>Guilt-Free<br><span class="mega-highlight" style="color: #28a745;">Goodness.</span></h2>
+                        <p>Premium salads and healthy bowls delivered fresh.</p>
+                        <button class="mega-btn" style="background: white; color: #111;">Eat Healthy</button>
+                    </div>
+                </div>
+
+                <div class="mega-slide" style="background: linear-gradient(135deg, rgba(28, 29, 38, 0.9) 0%, rgba(214, 51, 108, 0.8) 100%), url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1899&auto=format&fit=crop');">
+                    <div class="mega-content">
+                        <span class="mega-pill" style="background: #d6336c; color: white;">🌙 Late Night Cravings</span>
+                        <h2>Midnight<br><span class="mega-highlight" style="color: white;">Munchies.</span></h2>
+                        <p>Juicy burgers delivered hot until 3 AM.</p>
+                        <button class="mega-btn">Order Burgers</button>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mega-dots">
+                <span class="m-dot active-dot" data-index="0"></span>
+                <span class="m-dot" data-index="1"></span>
+                <span class="m-dot" data-index="2"></span>
+                <span class="m-dot" data-index="3"></span>
+            </div>
+        </section>
+
+        <section class="dietary-filter-section">
+            <div class="diet-toggles">
+                <button class="diet-btn veg-filter">
+                    <span class="veg-icon"></span> Pure Veg
+                </button>
+                <button class="diet-btn non-veg-filter">
+                    <span class="non-veg-icon"></span> Non-Veg
+                </button>
+            </div>
+        </section>
+
+        <section class="cravix-bento-tiles-section">
+            <h2 class="section-title">What's your mood today?</h2>
+            <div class="bento-tiles-grid">
+                
+                <div class="bento-tile"><img src="https://images.unsplash.com/photo-1594179047519-f347310d3322?q=80&w=400&auto=format&fit=crop" alt="Pizza"><h4>Pizzas</h4></div>
+                <div class="bento-tile"><img src="https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?q=80&w=400&auto=format&fit=crop" alt="Burger"><h4>Burgers</h4></div>
+                <div class="bento-tile"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=400&auto=format&fit=crop" alt="Pasta"><h4>Pasta</h4></div>
+                <div class="bento-tile"><img src="https://images.unsplash.com/photo-1582450871972-ab5ca641643d?q=80&w=400&auto=format&fit=crop" alt="Sushi"><h4>Sushi</h4></div>
+                <div class="bento-tile"><img src="https://authenticroyal.com/wp-content/uploads/2024/10/royal-rice-may-220461.jpg" alt="Biryani"><h4>Biryani</h4></div>
+                <div class="bento-tile"><img src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=400&auto=format&fit=crop" alt="Dessert"><h4>Desserts</h4></div>
+                <div class="bento-tile"><img src="https://madebykiara.com/wp-content/uploads/2025/07/Homemade_Chocolate_Ice_Cream_Recipe_4.webp" alt="Ice Cream"><h4>Ice Cream</h4></div>
+                <div class="bento-tile"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop" alt="Healthy"><h4>Healthy</h4></div>
+                <div class="bento-tile"><img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=400&auto=format&fit=crop" alt="Noodles"><h4>Noodles</h4></div>
+                <div class="bento-tile"><img src="https://images.unsplash.com/photo-1534040385115-33dcb3acba5b?q=80&w=400&auto=format&fit=crop" alt="Cakes"><h4>Coffees</h4></div>
+                <div class="bento-tile"><img src="https://th.bing.com/th/id/OIP.sa67_oQSOPayXsfEh89NMQHaE8?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3p" alt="Rolls"><h4>Rolls</h4></div>
+                <div class="bento-tile"><img src="https://insanelygoodrecipes.com/wp-content/uploads/2023/11/Fresh-Homemade-Mango-Smoothie-with-Lime-750x1125.jpg" alt="Beverages"><h4>Beverages</h4></div>
+                <div class="bento-tile"><img src="https://tse4.mm.bing.net/th/id/OIP.yNHdwLctAvFyeTZkDJfUZQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Momos"><h4>Momos</h4></div>
+                <div class="bento-tile"><img src="https://images.unsplash.com/photo-1619881589316-56c7f9e6b587?q=80&w=400&auto=format&fit=crop" alt="Sandwiches"><h4>Sandwiches</h4></div>
+                <div class="bento-tile"><img src="https://tse2.mm.bing.net/th/id/OIP.dluRtowiRWM9gcQXEwIEuAHaG9?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Gulab Jamun"><h4>Gulab Jamuns</h4></div>
+                <div class="bento-tile"><img src="https://insanelygoodrecipes.com/wp-content/uploads/2024/07/Chicken-Shawarma-2-683x1024.jpg" alt="Ice Cream"><h4>Chicken Shawarma</h4></div>
+                <div class="bento-tile"><img src="https://tse4.mm.bing.net/th/id/OIP._oNSHgFTgfqmNBNp9Xt1CgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Pizza"><h4>Chocolate Donuts</h4></div>
+               <div class="bento-tile"><img src="https://www.shutterstock.com/image-photo/chinese-bhel-spicy-indochinese-recipe-260nw-1387600799.jpg" alt="Burger"><h4>Noodles</h4></div>
+                <div class="bento-tile"><img src="https://tse1.mm.bing.net/th/id/OIP.BjTbWyprs65_G54jXDaNqwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Panner Tikka Wrap"><h4>Panner Tikka Wrap</h4></div>
+                <div class="bento-tile"><img src="https://ofbatteranddough.com/wp-content/uploads/2023/01/1200s-Chocolate-truffle-cake-2.jpg" alt="Tacos"><h4>chocolate truffle cake</h4></div>
+            </div>
+        </section>
+
+        <section class="bank-offers-section">
+            <h2 class="section-title">Exclusive Deals for You</h2>
+            <div class="offers-grid">
+                
+                <div class="offer-card icici-card">
+                    <div class="offer-left">
+                        <div class="offer-percent">FLAT ₹150 OFF</div>
+                        <div class="offer-desc">On orders above ₹600</div>
+                    </div>
+                    <div class="offer-right">
+                        <div class="offer-code">ICICI150</div>
+                        <div class="offer-bank">ICICI Bank Cards</div>
+                    </div>
+                </div>
+
+                <div class="offer-card welcome-card">
+                    <div class="offer-left">
+                        <div class="offer-percent">20% OFF</div>
+                        <div class="offer-desc">Up to ₹100 on your first order</div>
+                    </div>
+                    <div class="offer-right">
+                        <div class="offer-code">WELCOME20</div>
+                        <div class="offer-bank">New Users Only</div>
+                    </div>
+                </div>
+
+                <div class="offer-card delivery-card">
+                    <div class="offer-left">
+                        <div class="offer-percent">FREE DELIVERY</div>
+                        <div class="offer-desc">On all orders above ₹499</div>
+                    </div>
+                    <div class="offer-right">
+                        <div class="offer-code">CRAVIXFREE</div>
+                        <div class="offer-bank">Cravix Premium</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="cravix-dish-grid-section">
+            <h2 class="section-title">Trending Dishes Near You</h2>
+            <div class="dish-grid">
+                
+                <div class="dish-card" onclick="window.location.href='product.html'">
+                    <div class="dish-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1899&auto=format&fit=crop" alt="Burger">
+                        <span class="promo-badge">Flat 20% Off</span>
+                    </div>
+                    <div class="dish-info">
+                        <div class="title-row">
+                            <h3>Classic Cheese Burger</h3>
+                            <span class="veg-badge non-veg"></span>
+                        </div>
+                        <p class="dish-restaurant">Burger King • 30 mins</p>
+                    </div>
+                </div>
+
+                <div class="dish-card" onclick="window.location.href='product.html'">
+                    <div class="dish-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=500&auto=format&fit=crop" alt="Pizza">
+                    </div>
+                    <div class="dish-info">
+                        <div class="title-row">
+                            <h3>Farmhouse Pizza</h3>
+                            <span class="veg-badge veg"></span>
+                        </div>
+                        <p class="dish-restaurant">Domino's • 25 mins</p>
+                    </div>
+                </div>
+
+                <div class="dish-card" onclick="window.location.href='product.html'">
+                    <div class="dish-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=2070&auto=format&fit=crop" alt="Sushi">
+                    </div>
+                    <div class="dish-info">
+                        <div class="title-row">
+                            <h3>Spicy Tuna Sushi</h3>
+                            <span class="veg-badge non-veg"></span>
+                        </div>
+                        <p class="dish-restaurant">Sushi Express • 40 mins</p>
+                    </div>
+                </div>
+
+                <div class="dish-card" onclick="window.location.href='product.html'">
+                    <div class="dish-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=2070&auto=format&fit=crop" alt="Butter Chicken">
+                    </div>
+                    <div class="dish-info">
+                        <div class="title-row">
+                            <h3>Authentic Butter Chicken</h3>
+                            <span class="veg-badge non-veg"></span>
+                        </div>
+                        <p class="dish-restaurant">Punjabi Rasoi • 35 mins</p>
+                    </div>
+                </div>
+
+                <div class="dish-card" onclick="window.location.href='product.html'">
+                    <div class="dish-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=1980&auto=format&fit=crop" alt="Tacos">
+                        <span class="promo-badge">Bestseller</span>
+                    </div>
+                    <div class="dish-info">
+                        <div class="title-row">
+                            <h3>Mexican Beef Tacos</h3>
+                            <span class="veg-badge non-veg"></span>
+                        </div>
+                        <p class="dish-restaurant">Taco Bell • 20 mins</p>
+                    </div>
+                </div>
+
+                <div class="dish-card" onclick="window.location.href='product.html'">
+                    <div class="dish-img-wrapper">
+                        <img src="https://curlygirlkitchen.com/wp-content/uploads/2024/01/Crispy-Chocolate-Waffles-High-Altitude-009.jpg" alt="Waffles">
+                    </div>
+                    <div class="dish-info">
+                        <div class="title-row">
+                            <h3>Belgian Choco Waffle</h3>
+                            <span class="veg-badge veg"></span>
+                        </div>
+                        <p class="dish-restaurant">Belgian Waffle Co. • 15 mins</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="brands-section">
+            <h2 class="section-title">Top Brands for you</h2>
+            <div class="restaurant-grid">
+                
+                <div class="rest-card" onclick="window.location.href='Restaurant.html?id=burgerking'">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.cuT8f44iiICDTIAdw1Ns6gHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" class="rest-img" alt="Burger King">
+                    <div class="rest-details">
+                        <h4>Burger King</h4>
+                        <p class="rest-desc">Burgers • Fast Food • American</p>
+                        <div class="rest-meta">
+                            <span class="star-rating">★ 4.5</span>
+                            <span class="dot">•</span>
+                            <span>30 MINS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rest-card" onclick="window.location.href='Restaurant.html?id=dominos'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Dominos_pizza_logo.svg" class="rest-img" alt="Dominos">
+                    <div class="rest-details">
+                        <h4>Domino's Pizza</h4>
+                        <p class="rest-desc">Pizza • Fast Food • Italian</p>
+                        <div class="rest-meta">
+                            <span class="star-rating">★ 4.3</span>
+                            <span class="dot">•</span>
+                            <span>25 MINS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rest-card" onclick="window.location.href='Restaurant.html?id=mcdonalds'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg" class="rest-img" alt="McDonalds">
+                    <div class="rest-details">
+                        <h4>McDonald's</h4>
+                        <p class="rest-desc">Burgers • Fast Food • Beverages</p>
+                        <div class="rest-meta">
+                            <span class="star-rating">★ 4.6</span>
+                            <span class="dot">•</span>
+                            <span>35 MINS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rest-card" onclick="window.location.href='Restaurant.html?id=kfc'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/KFC_logo.svg" class="rest-img" alt="KFC">
+                    <div class="rest-details">
+                        <h4>KFC</h4>
+                        <p class="rest-desc">Fried Chicken • American • Fast Food</p>
+                        <div class="rest-meta">
+                            <span class="star-rating">★ 4.1</span>
+                            <span class="dot">•</span>
+                            <span>35 MINS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rest-card" onclick="window.location.href='Restaurant.html?id=subway'">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.0y_TByRb8p4mw8fMYtVETwHaES?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" class="rest-img" alt="Subway">
+                    <div class="rest-details">
+                        <h4>Subway</h4>
+                        <p class="rest-desc">Healthy • Sandwiches • Salads</p>
+                        <div class="rest-meta">
+                            <span class="star-rating">★ 4.2</span>
+                            <span class="dot">•</span>
+                            <span>28 MINS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rest-card" onclick="window.location.href='Restaurant.html?id=starbucks'">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.1YhNk4Jn_ZwIN3ZbCznuvgHaHa?r=0&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3" class="rest-img" alt="Starbucks">
+                    <div class="rest-details">
+                        <h4>Starbucks</h4>
+                        <p class="rest-desc">Beverages • Coffee • Desserts</p>
+                        <div class="rest-meta">
+                            <span class="star-rating">★ 4.7</span>
+                            <span class="dot">•</span>
+                            <span>15 MINS</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+
+    <div class="modal-overlay" id="auth-modal">
+        <div class="auth-modal-content">
+            <button class="close-modal" id="closeAuthModal">&times;</button>
+            
+            <div class="auth-left" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1000&auto=format&fit=crop');">
+                <div class="auth-glass-panel">
+                    <h2 style="color: #ffaa00; font-weight: 900; margin-bottom: 5px;">CRAVIX</h2>
+                    <p style="color: white; font-weight: 600; font-size: 14px;">Your cravings, delivered instantly.</p>
+                </div>
+            </div>
+
+            <div class="auth-right">
+                <div class="auth-step-1 auth-step active-step">
+                    <h3 style="margin-bottom: 5px;">Welcome to Cravix</h3>
+                    <p class="auth-subtitle" style="margin-bottom: 20px;">Log in or create your account</p>
+                    
+                    <div id="google-btn-container" style="display: flex; justify-content: center; width: 100%;"></div>
+
+                    <div class="auth-divider">
+                        <span>OR</span>
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 15px;">
+                        <input type="email" id="email-input" placeholder="Email Address" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; outline: none; background: #f4f5f7; color: #111; font-weight: 600;">
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <input type="password" id="password-input" placeholder="Password" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; outline: none; background: #f4f5f7; color: #111; font-weight: 600;">
+                    </div>
+                    
+                    <button class="auth-action-btn continue-btn" id="email-login-btn">Log In / Sign Up</button>
+                    
+                    <p class="auth-terms" style="margin-top: 15px;">By clicking, I accept the <span>Terms & Conditions</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="cravix-footer">
+        <div class="footer-container">
+            <div class="footer-grid-strict">
+                <div class="foot-col foot-about">
+                    <h1 class="logo footer-logo"><span class="crav">CRAV</span><span class="ix-food">IX</span></h1>
+                    <p class="footer-desc">Your final partner for instant, mouth-watering food delivery from top-tier local restaurants.</p>
+                </div>
+                <div class="foot-col foot-motto">
+                    <h4>Crave It. Cravix it.</h4>
+                    <div class="links-stack"><p>Authenticity delivered.</p><p>Quality guaranteed.</p></div>
+                </div>
+                <div class="foot-col foot-links">
+                    <h4>Quick Links</h4>
+                    <div class="links-stack"><a href="index.html">Home</a><a href="#">Shopping Cart</a><a href="#" class="profile-btn">My Account</a></div>
+                </div>
+                <div class="foot-col foot-socials">
+                    <h4>Follow Us</h4>
+                    <div class="links-stack"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">Twitter</a></div>
+                </div>
+                <div class="foot-col foot-contact">
+                    <h4>Contact Us</h4>
+                    <div class="links-stack"><p>Email: support@cravix.com</p><p>Phone: +91 98765 43210</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-line">
+            <h3>Available in</h3>
+            <p class="cities">New York, Los Angeles, Chicago, Houston, Miami, Delhi & more...</p>
+            <p class="copyright">© 2026 Cravix. All rights reserved. Built for the future.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

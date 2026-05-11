@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Cravix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ultra-body">
+
+    <header class="ultra-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <h1 class="logo"><span class="icon-wrapper">🍽️</span><span class="crav">CRAV</span><span class="ix-food">IX</span></h1>
+            </a>
+            <div class="ultra-actions">
+                <label class="theme-switch" title="Toggle Dark Mode"><input type="checkbox" id="themeToggle"><span class="slider"></span></label>
+                <button class="icon-btn" onclick="window.location.href='Cart.html'">🛒</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-wrapper search-page-wrapper">
+        <div class="search-header-huge">
+            <input type="text" id="masterSearchInput" placeholder="What are you craving today?" autocomplete="off" spellcheck="false" autofocus>
+        </div>
+
+        <div id="search-results-area" style="margin-top: 40px;">
+            <h2 class="results-section-title" id="brands-title" style="display: none;">Top Brands</h2>
+            <div class="restaurant-grid" id="brands-results"></div>
+
+            <h2 class="results-section-title" id="dishes-title" style="display: none; margin-top: 60px;">Matched Dishes</h2>
+            <div class="dish-grid" id="dishes-results"></div>
+            
+            <div id="no-results-msg" style="display: none; text-align: center; margin-top: 80px;">
+                <h1 style="font-size: 60px; margin-bottom: 10px;">👻</h1>
+                <h3 style="color: var(--text-muted);">No cravings found for that. Try something else!</h3>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

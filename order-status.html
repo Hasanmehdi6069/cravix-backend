@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status - Cravix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ultra-body tracking-bg">
+
+    <header class="ultra-header tracking-header">
+        <div class="header-content checkout-header">
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">
+                    <span class="icon-wrapper">🍽️</span>
+                    <span class="crav">CRAV</span><span class="ix-food">IX</span>
+                </h1>
+            </a>
+            <div class="secure-checkout-tag">
+                <span>🛡️</span> Live Tracking
+            </div>
+        </div>
+    </header>
+
+    <main class="order-track-wrapper">
+        <div class="order-track-grid">
+            
+            <div class="map-container">
+                <div class="map-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop" class="map-image-mock" alt="Map">
+                
+                <div class="driver-marker">
+                    <div class="marker-pulse"></div>
+                    <div class="marker-icon">🏍️</div>
+                </div>
+            </div>
+
+            <div class="status-sidebar">
+                
+                <div class="status-bento eta-card">
+                    <div class="eta-header">
+                        <h3>Arriving in</h3>
+                        <div class="eta-time">28 <span class="mins">mins</span></div>
+                    </div>
+                    <div class="order-id-bar">
+                        <span>Order #CRV-89102</span>
+                        <span>• 4 Items</span>
+                    </div>
+                </div>
+
+                <div class="status-bento timeline-card">
+                    <h3 class="bento-heading">Order Status</h3>
+                    
+                    <div class="track-timeline">
+                        <div class="time-step step-complete">
+                            <div class="icon-point">✓</div>
+                            <div class="step-details">
+                                <h4>Order Confirmed</h4>
+                                <p>12:45 PM | We have received your order.</p>
+                            </div>
+                        </div>
+
+                        <div class="time-step step-active">
+                            <div class="icon-point">🍳</div>
+                            <div class="step-details">
+                                <h4>Preparing Your Food</h4>
+                                <p>12:48 PM | Restaurant is prepping your meal.</p>
+                            </div>
+                        </div>
+
+                        <div class="time-step step-inactive">
+                            <div class="icon-point">🏍️</div>
+                            <div class="step-details">
+                                <h4>On the Way</h4>
+                                <p>Driver will pick up shortly.</p>
+                            </div>
+                        </div>
+
+                        <div class="time-step step-inactive">
+                            <div class="icon-point">🏠</div>
+                            <div class="step-details">
+                                <h4>Delivered</h4>
+                                <p>Order will be delivered at block B.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-bento driver-card">
+                    <div class="driver-info">
+                        <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bb8c?q=80&w=200&h=200&auto=format&fit=crop" class="driver-img" alt="Driver">
+                        <div>
+                            <h4>Vikram Singh</h4>
+                            <p>★ 4.9 | 1000+ Trips</p>
+                        </div>
+                        <button class="call-driver-btn">📞 Call</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

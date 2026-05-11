@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO Command Center - Cravix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-wrapper { max-width: 800px; margin: 80px auto; padding: 40px; background: #1a1a1a; border-radius: 20px; border: 1px solid #333; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .admin-header { text-align: center; margin-bottom: 40px; }
+        .admin-header h1 { font-size: 36px; color: #fff; font-weight: 900; letter-spacing: 1px; }
+        .admin-header p { color: #ffaa00; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; }
+        .admin-group { margin-bottom: 25px; }
+        .admin-group label { display: block; margin-bottom: 8px; color: #ccc; font-weight: 600; }
+        .admin-group input { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #444; background: #0a0a0a; color: #fff; font-size: 16px; outline: none; transition: 0.3s; }
+        .admin-group input:focus { border-color: #ffaa00; box-shadow: 0 0 15px rgba(255, 170, 0, 0.2); }
+        .deploy-btn { width: 100%; padding: 20px; border: none; border-radius: 10px; background: linear-gradient(45deg, #ff6b6b, #ffaa00); color: #fff; font-size: 20px; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; margin-top: 20px; }
+        .deploy-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 170, 0, 0.4); }
+    </style>
+</head>
+<body class="ultra-body">
+
+    <header class="ultra-header" style="background: #0a0a0a; border-bottom: 1px solid #333;">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <h1 class="logo"><span class="icon-wrapper">👑</span><span class="crav">CRAV</span><span class="ix-food">IX</span> <span style="font-size: 14px; color:#aaa; font-weight:400;">ADMIN</span></h1>
+            </a>
+        </div>
+    </header>
+
+    <div class="admin-wrapper">
+        <div class="admin-header">
+            <h1>Deploy New Restaurant</h1>
+            <p>Live Database Injection</p>
+        </div>
+
+        <div class="admin-group">
+            <label>Restaurant Name</label>
+            <input type="text" id="addName" placeholder="e.g. Taco Bell" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="admin-group">
+            <label>Cuisine Tags</label>
+            <input type="text" id="addTags" placeholder="e.g. Mexican • Tacos • Fast Food" autocomplete="off">
+        </div>
+        <div style="display: flex; gap: 20px;">
+            <div class="admin-group" style="width: 50%;">
+                <label>Rating</label>
+                <input type="text" id="addRating" placeholder="e.g. 4.6" autocomplete="off">
+            </div>
+            <div class="admin-group" style="width: 50%;">
+                <label>Location</label>
+                <input type="text" id="addLoc" placeholder="e.g. Vasant Kunj, New Delhi" autocomplete="off">
+            </div>
+        </div>
+        <div class="admin-group">
+            <label>Square Logo URL (Image Link)</label>
+            <input type="text" id="addLogo" placeholder="https://..." autocomplete="off">
+        </div>
+        <div class="admin-group">
+            <label>Cover Background URL (Image Link)</label>
+            <input type="text" id="addBg" placeholder="https://..." autocomplete="off">
+        </div>
+
+        <button class="deploy-btn" id="deployRestaurantBtn">🚀 Deploy to Server</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

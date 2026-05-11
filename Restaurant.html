@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant - Cravix Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="ultra-body">
+
+    <header class="ultra-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">
+                    <span class="icon-wrapper">🍽️</span>
+                    <span class="crav">CRAV</span><span class="ix-food">IX</span>
+                </h1>
+            </a>
+            
+            <div class="ultra-search">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search for top brands, dishes..." readonly onfocus="this.removeAttribute('readonly');" autocomplete="off">
+            </div>
+
+            <div class="ultra-actions">
+                <label class="theme-switch" title="Toggle Dark Mode">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider"></span>
+                </label>
+                <button class="icon-btn" title="Favorites">❤️</button>
+                <button class="icon-btn" title="Cart" onclick="window.location.href='Cart.html'">🛒<span class="cart-badge">0</span></button>
+                <button class="icon-btn" title="Profile">👤</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-wrapper menu-page-wrapper">
+        
+        <section class="rest-hero-banner">
+            <div class="rest-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=2065&auto=format&fit=crop');">
+                <div class="rest-hero-overlay"></div>
+            </div>
+            
+            <div class="rest-hero-content">
+                <div style="display: flex; gap: 30px; flex: 1;">
+                    <div class="rest-hero-logo">
+                        <img id="dynamic-logo" src="https://tse4.mm.bing.net/th/id/OIP.cuT8f44iiICDTIAdw1Ns6gHaEK?r=0&rs=1&pid=ImgDetMain" alt="Logo">
+                    </div>
+                    
+                    <div class="rest-info-primary">
+                        <h2 id="dynamic-name">Burger King</h2>
+                        <p class="rest-tags" id="dynamic-tags">American • Burgers • Fast Food</p>
+                        <p class="rest-location"><span id="dynamic-loc">Connaught Place, New Delhi</span> • <span style="color: var(--primary); font-weight: 700;">30 mins delivery</span></p>
+                    </div>
+                </div>
+
+                <div class="rest-info-secondary">
+                    <span class="mega-rating">
+                        ★ <span id="dynamic-rating">4.5</span> <span style="font-size: 13px; font-weight: 500; margin-left: 5px;">(10k+ Reviews)</span>
+                    </span>
+                    <div class="rest-offers-row">
+                        <span class="offer-pill">🎟️ FLAT ₹150 OFF</span>
+                        <span class="offer-pill">🎟️ 20% OFF up to ₹100</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-split-container">
+            
+            <aside class="menu-sidebar">
+                <ul id="dynamic-sidebar-links">
+                </ul>
+            </aside>
+
+            <div class="menu-items-area" id="dynamic-menu-area">
+            </div>
+
+        </section>
+    </main>
+
+    <div class="floating-cart-popup" id="floatingCart">
+        <div class="float-cart-info">
+            <span id="floatCartItems">0 Items</span> | <span id="floatCartPrice">₹0</span>
+        </div>
+        <button class="view-cart-btn" onclick="window.location.href='Cart.html'">View Cart →</button>
+    </div>
+
+     <div class="modal-overlay" id="auth-modal">
+        <div class="auth-modal-content">
+            <button class="close-modal" id="closeAuthModal">&times;</button>
+            
+            <div class="auth-left" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1000&auto=format&fit=crop');">
+                <div class="auth-glass-panel">
+                    <h2 style="color: #ffaa00; font-weight: 900; margin-bottom: 5px;">CRAVIX</h2>
+                    <p style="color: white; font-weight: 600; font-size: 14px;">Your cravings, delivered instantly.</p>
+                </div>
+            </div>
+
+            <div class="auth-right">
+                <div class="auth-step-1 auth-step active-step">
+                    <h3 style="margin-bottom: 5px;">Welcome to Cravix</h3>
+                    <p class="auth-subtitle" style="margin-bottom: 20px;">Log in or create your account</p>
+                    
+                    <div id="google-btn-container" style="display: flex; justify-content: center; width: 100%;"></div>
+
+                    <div class="auth-divider">
+                        <span>OR</span>
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 15px;">
+                        <input type="email" id="email-input" placeholder="Email Address" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; outline: none; background: #f4f5f7; color: #111; font-weight: 600;">
+                    </div>
+                    
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <input type="password" id="password-input" placeholder="Password" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px; outline: none; background: #f4f5f7; color: #111; font-weight: 600;">
+                    </div>
+                    
+                    <button class="auth-action-btn continue-btn" id="email-login-btn">Log In / Sign Up</button>
+                    
+                    <p class="auth-terms" style="margin-top: 15px;">By clicking, I accept the <span>Terms & Conditions</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="cravix-footer">
+        <div class="footer-container">
+            <div class="footer-grid-strict">
+                <div class="foot-col foot-about">
+                    <h1 class="logo footer-logo"><span class="crav">CRAV</span><span class="ix-food">IX</span></h1>
+                    <p class="footer-desc">Meticulously engineered platform for instant, mouth-watering food delivery.</p>
+                </div>
+                <div class="foot-col foot-motto">
+                    <h4>Crave It. Cravix it.</h4>
+                    <div class="links-stack"><p>Authenticity delivered.</p><p>Quality guaranteed.</p></div>
+                </div>
+                <div class="foot-col foot-links">
+                    <h4>Quick Links</h4>
+                    <div class="links-stack"><a href="index.html">Home</a><a href="Cart.html">Shopping Cart</a></div>
+                </div>
+                <div class="foot-col foot-socials">
+                    <h4>Follow Us</h4>
+                    <div class="links-stack"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">Twitter</a></div>
+                </div>
+                <div class="foot-col foot-contact">
+                    <h4>Contact Us</h4>
+                    <div class="links-stack"><p>Email: support@cravix.com</p><p>Phone: +91 98765 43210</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-line">
+            <h3>Available in</h3>
+            <p class="cities">New York, Los Angeles, Chicago, Houston, Miami, Delhi & more...</p>
+            <p class="copyright">© 2026 Cravix. All rights reserved. Built for the future.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

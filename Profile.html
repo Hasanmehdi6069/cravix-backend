@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Cravix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="ultra-body">
+
+    <header class="ultra-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <h1 class="logo">
+                    <span class="icon-wrapper">🍽️</span>
+                    <span class="crav">CRAV</span><span class="ix-food">IX</span>
+                </h1>
+            </a>
+            
+            <div class="ultra-search">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search for top brands, dishes..." readonly onfocus="this.removeAttribute('readonly');" autocomplete="off">
+            </div>
+
+            <div class="ultra-actions">
+                <label class="theme-switch" title="Toggle Dark Mode">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider"></span>
+                </label>
+                <button class="icon-btn" title="Favorites">❤️</button>
+                <button class="icon-btn" title="Cart" onclick="window.location.href='cart.html'">🛒<span class="cart-badge">0</span></button>
+                <button class="icon-btn" style="border-color: #28a745;" title="Profile">🟢</button>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="main-wrapper" style="max-width: 1200px; margin: 40px auto; padding: 0 20px; display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
+        
+        <aside class="profile-sidebar" style="width: 280px; flex-shrink: 0; background: var(--bg-color); border-radius: 15px; border: 1px solid var(--border-color); padding: 20px;">
+            
+            <div class="user-badge" style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+                <div class="avatar" style="width: 50px; height: 50px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold;">EF</div>
+                <div>
+                    <h3 style="font-size: 16px;">Elite Founder</h3>
+                    <p style="font-size: 12px; color: var(--text-muted);">+91 98765 43210</p>
+                </div>
+            </div>
+
+            <ul class="profile-nav" style="list-style: none; padding: 0;">
+                <li class="active-nav" style="padding: 15px; cursor: pointer; border-radius: 8px; font-weight: 600; background: rgba(255, 107, 107, 0.1); color: var(--primary); margin-bottom: 5px;">📦 Past Orders</li>
+                <li style="padding: 15px; cursor: pointer; border-radius: 8px; font-weight: 600; color: var(--text-muted); margin-bottom: 5px;">📍 Saved Addresses</li>
+                <li style="padding: 15px; cursor: pointer; border-radius: 8px; font-weight: 600; color: var(--text-muted); margin-bottom: 5px;">💳 Payment Methods</li>
+                <li style="padding: 15px; cursor: pointer; border-radius: 8px; font-weight: 600; color: var(--text-muted); margin-bottom: 5px;">⚙️ Settings</li>
+                <li style="padding: 15px; cursor: pointer; border-radius: 8px; font-weight: 600; color: red; margin-top: 20px;">🚪 Log Out</li>
+            </ul>
+        </aside>
+
+        <section class="profile-content-area" style="flex-grow: 1; min-width: 300px; background: var(--bg-color); border-radius: 15px; border: 1px solid var(--border-color); padding: 30px; min-height: 500px;">
+            
+            <div class="profile-tab-content" style="display: block;">
+                <h2 style="margin-bottom: 20px; font-size: 26px;">Past Orders</h2>
+                <div class="profile-tab-grid" id="dynamicOrderHistory">
+                    <p style="color: var(--text-muted); font-weight: 600;">Fetching your real orders from the Vault...</p>
+                </div>
+            </div>
+
+            <div class="profile-tab-content" style="display: none;">
+                <div style="display: flex; justify-content: flex-start; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 20px;">
+                    <h2 style="font-size: 26px; margin: 0;">Saved Addresses</h2>
+                    
+                    <button class="add-new-address-btn" style="position: static !important; float: none !important; margin: 0 !important; padding: 10px 20px; background: var(--text-main); color: var(--bg-color); border: none; border-radius: 8px; cursor: pointer; font-weight: 800;">+ UPDATE ADDRESS</button>
+                </div>
+                
+                <div id="saved-address-list">
+                    <div class="address-card" style="padding: 20px; border: 1px solid var(--border-color); border-radius: 12px; max-width: 500px;">
+                        <h4 style="color: var(--primary); margin-bottom: 8px; font-size: 18px;">📍 Home</h4>
+                        <p id="displayAddress" style="color: var(--text-muted); font-size: 15px; line-height: 1.5;">No address saved yet.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-tab-content" style="display: none;">
+                <h2 style="margin-bottom: 20px; font-size: 26px;">Payment Methods</h2>
+                <p style="color: var(--text-muted);">No saved cards yet. Add a card during your next checkout.</p>
+            </div>
+
+            <div class="profile-tab-content" style="display: none;">
+                <h2 style="margin-bottom: 25px; font-size: 26px;">Account Settings</h2>
+                <div class="settings-form" style="max-width: 450px;">
+                    <label style="display:block; margin-bottom: 8px; font-weight: 700;">Full Name</label>
+                    <input type="text" id="profileName" placeholder="e.g. John Doe" style="width: 100%; padding: 14px; margin-bottom: 20px; border-radius: 10px; border: 1px solid var(--border-color); background: transparent; color: var(--text-main); font-size: 15px; outline: none;">
+
+                    <label style="display:block; margin-bottom: 8px; font-weight: 700;">Phone Number</label>
+                    <input type="text" id="profilePhone" placeholder="+91..." style="width: 100%; padding: 14px; margin-bottom: 30px; border-radius: 10px; border: 1px solid var(--border-color); background: transparent; color: var(--text-main); font-size: 15px; outline: none;">
+
+                    <button id="saveProfileBtn" style="padding: 15px 25px; background: #28a745; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 16px; font-weight: 900; width: 100%; transition: 0.3s;">Save Changes</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+<footer class="cravix-footer">
+        <div class="footer-container">
+            <div class="footer-grid-strict">
+                <div class="foot-col foot-about">
+                    <h1 class="logo footer-logo"><span class="crav">CRAV</span><span class="ix-food">IX</span></h1>
+                    <p class="footer-desc">Your final partner for instant, mouth-watering food delivery from top-tier local restaurants.</p>
+                </div>
+                <div class="foot-col foot-motto">
+                    <h4>Crave It. Cravix it.</h4>
+                    <div class="links-stack"><p>Authenticity delivered.</p><p>Quality guaranteed.</p></div>
+                </div>
+                <div class="foot-col foot-links">
+                    <h4>Quick Links</h4>
+                    <div class="links-stack"><a href="index.html">Home</a><a href="#">Shopping Cart</a><a href="#" class="profile-btn">My Account</a></div>
+                </div>
+                <div class="foot-col foot-socials">
+                    <h4>Follow Us</h4>
+                    <div class="links-stack"><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">Twitter</a></div>
+                </div>
+                <div class="foot-col foot-contact">
+                    <h4>Contact Us</h4>
+                    <div class="links-stack"><p>Email: support@cravix.com</p><p>Phone: +91 98765 43210</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-line">
+            <h3>Available in</h3>
+            <p class="cities">New York, Los Angeles, Chicago, Houston, Miami, Delhi & more...</p>
+            <p class="copyright">© 2026 Cravix. All rights reserved. Built for the future.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
