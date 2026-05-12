@@ -686,27 +686,45 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     .foot-col ul li a { font-size: 13px !important; }
     .foot-col:first-child { grid-column: span 2; } /* Makes the Logo section full width at the top */
 
-    /* 1. HERO BANNER: AUTO-HEIGHT FIX */
+    /* 1. HERO BANNER: THE FINAL EXORCISM */
     .mega-hero-container { 
-        height: auto !important; /* Lets the box grow with the text! */
-        min-height: 160px !important;
-        padding: 25px 20px !important; 
+        height: auto !important; 
+        min-height: 180px !important;
+        /* MASSIVE 50px top padding pushes text down so it NEVER touches the badge! */
+        padding: 50px 20px 25px 20px !important; 
         border-radius: 16px !important;
+        background-size: cover !important; /* Fixes the stretched background image */
+        background-position: center !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important;
-        align-items: flex-start !important;
+        justify-content: flex-end !important;
+        position: relative !important;
     }
+    .mega-content { margin: 0 !important; padding: 0 !important; width: 100% !important; z-index: 2 !important; }
+    
     .mega-content h1, .mega-content h2 { 
-        font-size: 22px !important; 
-        line-height: 1.3 !important; 
+        font-size: 20px !important; 
+        line-height: 1.2 !important; 
         margin: 0 0 10px 0 !important; 
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.7) !important; /* Makes text pop over the pizza */
     }
-    .mega-content p { display: none !important; }
-    .mega-btn { margin-top: 5px !important; }
-
-
-    /* 2. DEALS BOARD: ROW LAYOUT FIX */
+    
+    /* KILL THE PARAGRAPH COMPLETELY */
+    .mega-content p { 
+        display: none !important; 
+        visibility: hidden !important; 
+        height: 0 !important; 
+        margin: 0 !important; 
+    }
+    
+    .mega-btn { 
+        padding: 8px 16px !important; 
+        font-size: 13px !important; 
+        width: fit-content !important; 
+        position: relative !important;
+        z-index: 10 !important;
+    }
+    /* 2. DEALS BOARD: ZERO SHRINKAGE */
     .offers-grid { 
         display: flex !important; 
         flex-wrap: nowrap !important; 
@@ -715,18 +733,18 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
         padding-bottom: 10px !important;
     }
     .offer-card { 
-        min-width: 280px !important; 
-        height: auto !important; 
+        flex: 0 0 260px !important; /* MAGIC FIX: 0 shrink, exactly 260px wide */
+        height: 130px !important; /* Exact height locked */
         padding: 15px !important; 
         display: flex !important;
-        flex-direction: row !important; /* Puts text on left, button on right */
-        justify-content: space-between !important;
-        align-items: center !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
     }
-    .offer-card div { width: 60% !important; } /* Restricts text width */
-    .offer-card h3 { font-size: 16px !important; margin: 0 0 4px 0 !important; white-space: normal !important; }
-    .offer-card p { font-size: 11px !important; margin: 0 !important; white-space: normal !important; line-height: 1.2 !important; }
-    .offer-code { width: 35% !important; font-size: 10px !important; padding: 8px 5px !important; text-align: center !important; margin: 0 !important; }
+    .offer-card h3 { font-size: 16px !important; margin: 0 0 5px 0 !important; }
+    .offer-card p { font-size: 12px !important; margin: 0 0 10px 0 !important; }
+    .offer-code { font-size: 11px !important; margin: 0 !important; width: fit-content !important; }
+
     /* 3. TOP BRANDS: LOGO DISTORTION FIX */
     .restaurant-grid { 
         display: grid !important; 
