@@ -686,27 +686,27 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     .foot-col ul li a { font-size: 13px !important; }
     .foot-col:first-child { grid-column: span 2; } /* Makes the Logo section full width at the top */
 
-    /* 1. HERO BANNER: THE IRON VAULT */
+    /* 1. HERO BANNER: AUTO-HEIGHT FIX */
     .mega-hero-container { 
-        height: 180px !important; 
-        min-height: 180px !important;
-        padding: 15px !important; 
+        height: auto !important; /* Lets the box grow with the text! */
+        min-height: 160px !important;
+        padding: 25px 20px !important; 
         border-radius: 16px !important;
-        overflow: hidden !important; /* Kills any text trying to escape */
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-end !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
     }
-    .mega-content { margin: 0 !important; padding: 0 !important; }
     .mega-content h1, .mega-content h2 { 
-        font-size: 18px !important; /* Drastically reduced */
-        line-height: 1.2 !important; 
-        margin: 5px 0 10px 0 !important; 
+        font-size: 22px !important; 
+        line-height: 1.3 !important; 
+        margin: 0 0 10px 0 !important; 
     }
-    .mega-content p { display: none !important; } /* Nuke the long description */
-    .mega-btn { padding: 8px 12px !important; font-size: 12px !important; width: fit-content !important; }
+    .mega-content p { display: none !important; }
+    .mega-btn { margin-top: 5px !important; }
 
-    /* 2. DEALS BOARD: ZERO SHRINKAGE */
+
+    /* 2. DEALS BOARD: ROW LAYOUT FIX */
     .offers-grid { 
         display: flex !important; 
         flex-wrap: nowrap !important; 
@@ -715,54 +715,42 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
         padding-bottom: 10px !important;
     }
     .offer-card { 
-        flex: 0 0 260px !important; /* MAGIC FIX: 0 shrink, exactly 260px wide */
-        height: 130px !important; /* Exact height locked */
+        min-width: 280px !important; 
+        height: auto !important; 
         padding: 15px !important; 
         display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        box-sizing: border-box !important;
+        flex-direction: row !important; /* Puts text on left, button on right */
+        justify-content: space-between !important;
+        align-items: center !important;
     }
-    .offer-card h3 { font-size: 16px !important; margin: 0 0 5px 0 !important; }
-    .offer-card p { font-size: 12px !important; margin: 0 0 10px 0 !important; }
-    .offer-code { font-size: 11px !important; margin: 0 !important; width: fit-content !important; }
-
-    /* 3. TOP BRANDS: STRICT BOUNDARIES */
+    .offer-card div { width: 60% !important; } /* Restricts text width */
+    .offer-card h3 { font-size: 16px !important; margin: 0 0 4px 0 !important; white-space: normal !important; }
+    .offer-card p { font-size: 11px !important; margin: 0 !important; white-space: normal !important; line-height: 1.2 !important; }
+    .offer-code { width: 35% !important; font-size: 10px !important; padding: 8px 5px !important; text-align: center !important; margin: 0 !important; }
+    /* 3. TOP BRANDS: LOGO DISTORTION FIX */
     .restaurant-grid { 
         display: grid !important; 
         grid-template-columns: repeat(2, 1fr) !important; 
-        gap: 12px !important; 
+        gap: 15px !important; 
     }
     .rest-card { 
+        padding: 10px !important; 
+        height: auto !important; 
         display: flex !important;
         flex-direction: column !important;
-        min-height: 190px !important; /* Gives text room to breathe */
-        padding: 10px !important; 
-        box-sizing: border-box !important;
     }
     .rest-img { 
         width: 100% !important; 
-        height: 90px !important; 
+        height: 75px !important; 
+        object-fit: contain !important; /* STOPS THE LOGOS FROM ZOOMING IN */
+        padding: 5px !important;
+        background: #f8f9fa !important; /* Adds a clean background behind logos */
         border-radius: 8px !important; 
-        object-fit: cover !important; 
-        margin-bottom: 8px !important;
+        margin-bottom: 10px !important;
     }
-    .rest-details { display: flex !important; flex-direction: column !important; gap: 5px !important; flex-grow: 1 !important; }
-    .rest-details h4 { 
-        font-size: 14px !important; 
-        margin: 0 !important; 
-        white-space: nowrap !important; 
-        overflow: hidden !important; 
-        text-overflow: ellipsis !important; /* Adds "..." if name is too long */
-    }
-    .rest-desc { 
-        font-size: 11px !important; 
-        margin: 0 !important; 
-        white-space: nowrap !important; 
-        overflow: hidden !important; 
-        text-overflow: ellipsis !important; /* Stops description from hitting the rating */
-    }
-    .rest-meta { margin-top: auto !important; /* Forces rating to the very bottom */ font-size: 11px !important; }
+    .rest-details h4 { font-size: 13px !important; line-height: 1.3 !important; white-space: normal !important; margin-bottom: 4px !important; }
+    .rest-desc { font-size: 11px !important; line-height: 1.3 !important; white-space: normal !important; color: #666 !important; }
+    .rest-meta { margin-top: 10px !important; }
 
     /* 4. CATEGORIES: PERFECT 2-ROW ALIGNMENT */
     .bento-tiles-grid { 
