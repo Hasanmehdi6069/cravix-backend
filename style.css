@@ -686,126 +686,48 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     .foot-col ul li a { font-size: 13px !important; }
     .foot-col:first-child { grid-column: span 2; } /* Makes the Logo section full width at the top */
 
-
-    /* 1. LOCK THE HEADER & LOGO */
-    .header-content { 
-        display: flex !important; 
-        flex-direction: column !important; 
-        align-items: flex-start !important; 
-        width: 100% !important; 
-    }
-    .logo-link { margin-bottom: 5px !important; }
-    
-    /* 2. STOP THE BANNER TEXT FROM EXPLODING */
+    /* 1. HERO BANNER: THE IRON VAULT */
     .mega-hero-container { 
         height: 180px !important; 
+        min-height: 180px !important;
         padding: 15px !important; 
+        border-radius: 16px !important;
+        overflow: hidden !important; /* Kills any text trying to escape */
+        display: flex !important;
+        flex-direction: column !important;
         justify-content: flex-end !important;
     }
+    .mega-content { margin: 0 !important; padding: 0 !important; }
     .mega-content h1, .mega-content h2 { 
-        font-size: 26px !important; /* Forces huge text to shrink */
-        line-height: 1.1 !important; 
-        white-space: normal !important; 
-        margin-bottom: 0 !important;
+        font-size: 18px !important; /* Drastically reduced */
+        line-height: 1.2 !important; 
+        margin: 5px 0 10px 0 !important; 
     }
-    
-    /* 3. FIX THE 2-ROW CATEGORY SQUEEZE */
-    .bento-tiles-grid { 
-        display: grid !important; 
-        grid-template-rows: repeat(2, 1fr) !important; 
-        grid-auto-columns: 80px !important; /* Locks width so they don't squish */
-        grid-auto-flow: column !important; 
-        gap: 15px !important; 
-        overflow-x: auto !important; 
-    }
-    .bento-tile { min-width: unset !important; width: 100% !important; }
-    .bento-tile img { width: 60px !important; height: 60px !important; }
-    
-    /* 4. FIX THE DEALS/OFFERS OVERLAP */
+    .mega-content p { display: none !important; } /* Nuke the long description */
+    .mega-btn { padding: 8px 12px !important; font-size: 12px !important; width: fit-content !important; }
+
+    /* 2. DEALS BOARD: ZERO SHRINKAGE */
     .offers-grid { 
         display: flex !important; 
-        flex-direction: row !important; 
+        flex-wrap: nowrap !important; 
         overflow-x: auto !important; 
         gap: 15px !important; 
+        padding-bottom: 10px !important;
     }
     .offer-card { 
-        min-width: 260px !important; /* Stops them from crushing together */
+        flex: 0 0 260px !important; /* MAGIC FIX: 0 shrink, exactly 260px wide */
+        height: 130px !important; /* Exact height locked */
         padding: 15px !important; 
-        height: auto !important; 
-    }
-    .offer-card h3 { font-size: 18px !important; margin-bottom: 5px !important; }
-    .offer-card p { font-size: 12px !important; }
-    .offer-code { font-size: 11px !important; padding: 6px 12px !important; margin-top: 10px !important; }
-
-    /* 5. FIX THE TOP BRANDS GRID */
-    .restaurant-grid { 
-        display: grid !important; 
-        grid-template-columns: repeat(2, 1fr) !important; 
-        gap: 10px !important; 
-    }
-    .rest-card { padding: 10px !important; }
-    .rest-img { height: 90px !important; }
-    .rest-details h4 { font-size: 13px !important; white-space: normal !important; line-height: 1.2 !important; }
-
-
-    /* 1. LOCK THE HEADER & LOGO */
-    .header-content { 
-        display: flex !important; 
-        flex-direction: column !important; 
-        align-items: flex-start !important; 
-        width: 100% !important; 
-    }
-    .logo-link { margin-bottom: 5px !important; }
-
-    /* 2. FIX THE EXPLODING HERO BANNER */
-    .mega-hero-container { 
-        height: auto !important; /* Let it grow if text needs space */
-        min-height: 160px !important;
-        padding: 20px !important; 
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
-        overflow: hidden !important; /* Traps anything trying to escape */
+        box-sizing: border-box !important;
     }
-    .mega-content h1, .mega-content h2 { 
-        font-size: 20px !important; /* Significantly smaller for mobile */
-        line-height: 1.2 !important; 
-        white-space: normal !important; 
-        margin: 0 !important;
-        width: 100% !important;
-    }
+    .offer-card h3 { font-size: 16px !important; margin: 0 0 5px 0 !important; }
+    .offer-card p { font-size: 12px !important; margin: 0 0 10px 0 !important; }
+    .offer-code { font-size: 11px !important; margin: 0 !important; width: fit-content !important; }
 
-    /* 3. FIX THE CATEGORY SQUEEZE (Force Scroll) */
-    .bento-tiles-grid { 
-        display: grid !important; 
-        grid-template-rows: repeat(2, auto) !important; 
-        grid-auto-columns: 80px !important; /* Exact width, no shrinking */
-        grid-auto-flow: column !important; 
-        gap: 15px !important; 
-        overflow-x: auto !important; /* Enables horizontal scroll */
-        justify-content: start !important; /* Aligns them properly */
-        padding-bottom: 10px !important;
-    }
-    .bento-tile { width: 80px !important; padding: 0 !important; }
-    .bento-tile img { width: 60px !important; height: 60px !important; margin: 0 auto !important; }
-    .bento-tile h4 { font-size: 11px !important; white-space: normal !important; line-height: 1.2 !important; }
-
-    /* 4. FIX DEALS (Stop Flexbox from Crushing) */
-    .offers-grid { 
-        display: flex !important; 
-        flex-wrap: nowrap !important; /* FORCES them to stay in a line */
-        overflow-x: auto !important; 
-        gap: 15px !important; 
-    }
-    .offer-card { 
-        flex: 0 0 260px !important; /* 0 shrink, 0 grow, exactly 260px */
-        padding: 15px !important; 
-        height: auto !important; 
-        overflow: hidden !important;
-    }
-    .offer-card h3 { font-size: 16px !important; margin-bottom: 5px !important; white-space: normal !important; }
-
-    /* 5. FIX TOP BRANDS (Lock the Borders) */
+    /* 3. TOP BRANDS: STRICT BOUNDARIES */
     .restaurant-grid { 
         display: grid !important; 
         grid-template-columns: repeat(2, 1fr) !important; 
@@ -814,20 +736,51 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     .rest-card { 
         display: flex !important;
         flex-direction: column !important;
-        height: auto !important;
+        min-height: 190px !important; /* Gives text room to breathe */
         padding: 10px !important; 
-        overflow: hidden !important; /* Stops text bleeding */
+        box-sizing: border-box !important;
     }
     .rest-img { 
         width: 100% !important; 
         height: 90px !important; 
-        object-fit: cover !important; /* Stops images stretching weirdly */
-        border-radius: 8px !important;
+        border-radius: 8px !important; 
+        object-fit: cover !important; 
+        margin-bottom: 8px !important;
     }
-    .rest-details { margin-top: 8px !important; width: 100% !important; }
-    .rest-details h4 { font-size: 13px !important; white-space: normal !important; line-height: 1.2 !important; margin-bottom: 4px !important; }
+    .rest-details { display: flex !important; flex-direction: column !important; gap: 5px !important; flex-grow: 1 !important; }
+    .rest-details h4 { 
+        font-size: 14px !important; 
+        margin: 0 !important; 
+        white-space: nowrap !important; 
+        overflow: hidden !important; 
+        text-overflow: ellipsis !important; /* Adds "..." if name is too long */
+    }
+    .rest-desc { 
+        font-size: 11px !important; 
+        margin: 0 !important; 
+        white-space: nowrap !important; 
+        overflow: hidden !important; 
+        text-overflow: ellipsis !important; /* Stops description from hitting the rating */
+    }
+    .rest-meta { margin-top: auto !important; /* Forces rating to the very bottom */ font-size: 11px !important; }
+
+    /* 4. CATEGORIES: PERFECT 2-ROW ALIGNMENT */
+    .bento-tiles-grid { 
+        display: grid !important; 
+        grid-template-rows: repeat(2, 1fr) !important; 
+        grid-auto-columns: 75px !important; 
+        grid-auto-flow: column !important; 
+        gap: 10px !important; 
+        overflow-x: auto !important; 
+        padding-bottom: 10px !important;
+    }
+    .bento-tile { width: 100% !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
+    .bento-tile img { width: 55px !important; height: 55px !important; margin: 0 auto !important; }
+    .bento-tile h4 { font-size: 10px !important; margin-top: 6px !important; }
 }
+
 /* PREMIUM TYPOGRAPHY LOGO */
+
 .logo-link { text-decoration: none; display: flex; align-items: center; }
 .logo-text-crav { font-size: 26px; font-weight: 900; color: #111; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
 .logo-text-ix { font-size: 26px; font-weight: 900; color: #ff6b6b; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
