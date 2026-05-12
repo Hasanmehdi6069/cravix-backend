@@ -686,3 +686,71 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     .foot-col ul li a { font-size: 13px !important; }
     .foot-col:first-child { grid-column: span 2; } /* Makes the Logo section full width at the top */
 }
+/* PREMIUM TYPOGRAPHY LOGO */
+.logo-link { text-decoration: none; display: flex; align-items: center; }
+.logo-text-crav { font-size: 26px; font-weight: 900; color: #111; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
+.logo-text-ix { font-size: 26px; font-weight: 900; color: #ff6b6b; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
+
+
+/* 1. UNSQUEEZE THE HERO BANNER */
+    .mega-hero-container { 
+        height: 180px !important; 
+        background-position: center !important; 
+        background-size: cover !important; 
+        border-radius: 20px !important; 
+        padding: 20px !important; 
+        display: flex !important; 
+        flex-direction: column !important; 
+        justify-content: flex-end !important; /* Pushes text to the bottom cleanly */
+    }
+
+    /* 2. THE 2-ROW CATEGORY SCROLL */
+    .bento-tiles-grid { 
+        display: grid !important; 
+        grid-template-rows: repeat(2, 1fr) !important; /* Forces 2 Rows */
+        grid-auto-flow: column !important; /* Fills columns horizontally */
+        gap: 15px 20px !important; 
+        overflow-x: auto !important; 
+        scroll-snap-type: x mandatory; 
+        padding-bottom: 15px !important; 
+    }
+    .bento-tile { min-width: 70px !important; scroll-snap-align: start; }
+
+    /* 3. SLEEK 2026 HORIZONTAL DEALS (Goodbye 2012!) */
+    .offers-grid { 
+        display: flex !important; 
+        flex-direction: row !important; /* Stops them from stacking */
+        overflow-x: auto !important; 
+        scroll-snap-type: x mandatory; 
+        gap: 15px !important; 
+        padding-bottom: 15px !important; 
+    }
+    .offer-card { 
+        min-width: 280px !important; 
+        height: 110px !important; /* Much thinner and sleeker */
+        scroll-snap-align: start; 
+        padding: 15px !important; 
+        display: flex !important; 
+        align-items: center !important; 
+    }
+
+    /* 4. THE 2x2 TOP BRANDS GRID */
+    .restaurant-grid { 
+        display: grid !important; 
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 Columns like dishes */
+        gap: 15px !important; 
+    }
+    .rest-card { 
+        flex-direction: column !important; /* Stack image on top of text */
+        align-items: flex-start !important; 
+        padding: 10px !important; 
+    }
+    .rest-img { 
+        width: 100% !important; 
+        height: 100px !important; 
+        border-radius: 12px !important; 
+        object-fit: cover !important; 
+    }
+    .rest-details { margin-top: 8px !important; width: 100%; }
+    .rest-details h4 { font-size: 14px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rest-desc { font-size: 11px !important; }
