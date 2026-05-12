@@ -6,12 +6,11 @@
     <title>Checkout - Cravix</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body class="ultra-body checkout-bg">
 
     <header class="ultra-header">
-        <div class="header-content checkout-header">
+        <div class="header-content cart-header-fix">
             <a href="index.html" class="logo-link">
                 <h1 class="logo">
                     <span class="icon-wrapper">🍽️</span>
@@ -28,8 +27,7 @@
         <div class="checkout-grid">
             
             <div class="checkout-left">
-                
-                <div class="checkout-bento step-completed">
+                <div class="checkout-bento step-completed" id="box-account">
                     <div class="step-header">
                         <div class="step-icon">👤</div>
                         <div class="step-title">
@@ -40,7 +38,7 @@
                     </div>
                 </div>
 
-                <div class="checkout-bento step-active">
+                <div class="checkout-bento step-active" id="box-address">
                     <div class="step-header">
                         <div class="step-icon">📍</div>
                         <div class="step-title">
@@ -59,7 +57,7 @@
                     </div>
                 </div>
 
-                <div class="checkout-bento">
+                <div class="checkout-bento" id="box-payment">
                     <div class="step-header">
                         <div class="step-icon">💳</div>
                         <div class="step-title">
@@ -87,14 +85,11 @@
                             </div>
                             <div class="pay-details">
                                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 15px;">We accept Visa, Mastercard, RuPay, and American Express.</p>
-                                
                                 <input type="text" id="cardNumberInput" placeholder="Card Number (e.g. 4111 1111 1111 1111)" style="width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main); outline: none;" maxlength="19">
-                                
                                 <div style="display: flex; gap: 10px; margin-bottom: 15px;">
                                     <input type="text" id="cardExpiryInput" placeholder="MM/YY" style="width: 50%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main); outline: none;" maxlength="5">
                                     <input type="password" id="cardCvvInput" placeholder="CVV" style="width: 50%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-main); outline: none;" maxlength="3">
                                 </div>
-                                
                                 <button class="pay-now-btn" id="securePayBtn" style="background: var(--primary);">Secure Pay</button>
                             </div>
                         </div>
@@ -116,8 +111,7 @@
             </div> 
             
             <div class="checkout-right">
-                <div class="cart-summary-bento">
-                    
+                <div class="cart-summary-bento" id="box-food">
                     <div class="restaurant-cart-header">
                         <img src="https://tse4.mm.bing.net/th/id/OIP.cuT8f44iiICDTIAdw1Ns6gHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Burger King">
                         <div>
@@ -125,15 +119,11 @@
                             <p>Connaught Place • Delivery in 30 mins</p>
                         </div>
                     </div>
-                    
                     <div class="cart-items-list" id="dynamicCartItems">
-                        <!-- JS injects here -->
-                    </div>
-
+                        </div>
                     <div class="cooking-instructions" id="cartExtras1">
                         <input type="text" placeholder="✍️ Any cooking instructions? (e.g. extra spicy)">
                     </div>
-
                     <div class="cart-offers" id="cartExtras2">
                         <span class="offer-icon">🎟️</span>
                         <div class="offer-text">
@@ -142,7 +132,6 @@
                         </div>
                         <span class="arrow-right">→</span>
                     </div>
-
                     <div class="bill-details" id="cartExtras3">
                         <h4>Bill Details</h4>
                         <div class="bill-row">
@@ -159,7 +148,6 @@
 
         </div> 
         
-        <!-- Address Modal -->
         <div class="modal-overlay" id="addressModal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -186,18 +174,12 @@
         </div>
         <h2 style="font-size: 32px; margin-bottom: 10px; animation: slideUp 0.5s ease-out 0.2s both;">Order Confirmed!</h2>
         <p style="font-size: 18px; color: #ddd; animation: slideUp 0.5s ease-out 0.4s both;">Preparing your food... teleporting to radar.</p>
-        
         <style>
-            @keyframes popIn { 
-                0% { transform: scale(0); opacity: 0; } 
-                100% { transform: scale(1); opacity: 1; } 
-            }
-            @keyframes slideUp { 
-                0% { transform: translateY(30px); opacity: 0; } 
-                100% { transform: translateY(0); opacity: 1; } 
-            }
+            @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+            @keyframes slideUp { 0% { transform: translateY(30px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
         </style>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
