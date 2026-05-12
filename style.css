@@ -686,69 +686,6 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     .foot-col ul li a { font-size: 13px !important; }
     .foot-col:first-child { grid-column: span 2; } /* Makes the Logo section full width at the top */
 
-    /* 1. UNSQUEEZE THE HERO BANNER */
-    .mega-hero-container { 
-        height: 180px !important; 
-        background-position: center !important; 
-        background-size: cover !important; 
-        border-radius: 20px !important; 
-        padding: 20px !important; 
-        display: flex !important; 
-        flex-direction: column !important; 
-        justify-content: flex-end !important; /* Pushes text to the bottom cleanly */
-    }
-
-    /* 2. THE 2-ROW CATEGORY SCROLL */
-    .bento-tiles-grid { 
-        display: grid !important; 
-        grid-template-rows: repeat(2, 1fr) !important; /* Forces 2 Rows */
-        grid-auto-flow: column !important; /* Fills columns horizontally */
-        gap: 15px 20px !important; 
-        overflow-x: auto !important; 
-        scroll-snap-type: x mandatory; 
-        padding-bottom: 15px !important; 
-    }
-    .bento-tile { min-width: 70px !important; scroll-snap-align: start; }
-
-    /* 3. SLEEK 2026 HORIZONTAL DEALS (Goodbye 2012!) */
-    .offers-grid { 
-        display: flex !important; 
-        flex-direction: row !important; /* Stops them from stacking */
-        overflow-x: auto !important; 
-        scroll-snap-type: x mandatory; 
-        gap: 15px !important; 
-        padding-bottom: 15px !important; 
-    }
-    .offer-card { 
-        min-width: 280px !important; 
-        height: 110px !important; /* Much thinner and sleeker */
-        scroll-snap-align: start; 
-        padding: 15px !important; 
-        display: flex !important; 
-        align-items: center !important; 
-    }
-
-    /* 4. THE 2x2 TOP BRANDS GRID */
-    .restaurant-grid { 
-        display: grid !important; 
-        grid-template-columns: repeat(2, 1fr) !important; /* 2 Columns like dishes */
-        gap: 15px !important; 
-    }
-    .rest-card { 
-        flex-direction: column !important; /* Stack image on top of text */
-        align-items: flex-start !important; 
-        padding: 10px !important; 
-    }
-    .rest-img { 
-        width: 100% !important; 
-        height: 100px !important; 
-        border-radius: 12px !important; 
-        object-fit: cover !important; 
-    }
-    .rest-details { margin-top: 8px !important; width: 100%; }
-    .rest-details h4 { font-size: 14px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .rest-desc { font-size: 11px !important; }
-
 
     /* 1. LOCK THE HEADER & LOGO */
     .header-content { 
@@ -809,6 +746,86 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     .rest-card { padding: 10px !important; }
     .rest-img { height: 90px !important; }
     .rest-details h4 { font-size: 13px !important; white-space: normal !important; line-height: 1.2 !important; }
+
+
+    /* 1. LOCK THE HEADER & LOGO */
+    .header-content { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        width: 100% !important; 
+    }
+    .logo-link { margin-bottom: 5px !important; }
+
+    /* 2. FIX THE EXPLODING HERO BANNER */
+    .mega-hero-container { 
+        height: auto !important; /* Let it grow if text needs space */
+        min-height: 160px !important;
+        padding: 20px !important; 
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        overflow: hidden !important; /* Traps anything trying to escape */
+    }
+    .mega-content h1, .mega-content h2 { 
+        font-size: 20px !important; /* Significantly smaller for mobile */
+        line-height: 1.2 !important; 
+        white-space: normal !important; 
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    /* 3. FIX THE CATEGORY SQUEEZE (Force Scroll) */
+    .bento-tiles-grid { 
+        display: grid !important; 
+        grid-template-rows: repeat(2, auto) !important; 
+        grid-auto-columns: 80px !important; /* Exact width, no shrinking */
+        grid-auto-flow: column !important; 
+        gap: 15px !important; 
+        overflow-x: auto !important; /* Enables horizontal scroll */
+        justify-content: start !important; /* Aligns them properly */
+        padding-bottom: 10px !important;
+    }
+    .bento-tile { width: 80px !important; padding: 0 !important; }
+    .bento-tile img { width: 60px !important; height: 60px !important; margin: 0 auto !important; }
+    .bento-tile h4 { font-size: 11px !important; white-space: normal !important; line-height: 1.2 !important; }
+
+    /* 4. FIX DEALS (Stop Flexbox from Crushing) */
+    .offers-grid { 
+        display: flex !important; 
+        flex-wrap: nowrap !important; /* FORCES them to stay in a line */
+        overflow-x: auto !important; 
+        gap: 15px !important; 
+    }
+    .offer-card { 
+        flex: 0 0 260px !important; /* 0 shrink, 0 grow, exactly 260px */
+        padding: 15px !important; 
+        height: auto !important; 
+        overflow: hidden !important;
+    }
+    .offer-card h3 { font-size: 16px !important; margin-bottom: 5px !important; white-space: normal !important; }
+
+    /* 5. FIX TOP BRANDS (Lock the Borders) */
+    .restaurant-grid { 
+        display: grid !important; 
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 12px !important; 
+    }
+    .rest-card { 
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 10px !important; 
+        overflow: hidden !important; /* Stops text bleeding */
+    }
+    .rest-img { 
+        width: 100% !important; 
+        height: 90px !important; 
+        object-fit: cover !important; /* Stops images stretching weirdly */
+        border-radius: 8px !important;
+    }
+    .rest-details { margin-top: 8px !important; width: 100% !important; }
+    .rest-details h4 { font-size: 13px !important; white-space: normal !important; line-height: 1.2 !important; margin-bottom: 4px !important; }
 }
 /* PREMIUM TYPOGRAPHY LOGO */
 .logo-link { text-decoration: none; display: flex; align-items: center; }
