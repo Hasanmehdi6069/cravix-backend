@@ -836,12 +836,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await res.json();
                 
                 if (!result.success) throw new Error("API Failed");
-                const allData = result.data;
+               // 1. Pull Live Data
+                let allData = result.success ? result.data : [];
 
-                const q = query.toLowerCase();
-                let matchedBrands = [];
-                let matchedDishes = [];
-
+                // 2. 🟢 THE FIX: Pull Local Admin Data and Merge it!
+                const localAdminData = JSON.parse(localStorage.getItem('cravix_restaurants')) || [];
+                allData = [...allData, ...localAdminData]; // Merges local Taco Bell with live Burger King
                 // ==========================================
                 // 🛡️ INDESTRUCTIBLE SEARCH ALGORITHM
                 // ==========================================
@@ -1250,7 +1250,7 @@ async function loadTopBrands() {
 
     let allBrands = [];
 
-    // 1. Pull from Local Admin Deployments FIRST (Instantly shows Taco Bell)
+    // 1. 🟢 Pull from Local Admin Deployments FIRST (Instantly shows Taco Bell)
     const localRest = JSON.parse(localStorage.getItem('cravix_restaurants')) || [];
     allBrands = [...localRest];
 

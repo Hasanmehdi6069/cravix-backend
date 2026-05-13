@@ -829,6 +829,51 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
         gap: 15px !important;
     }
     .address-card, .payment-accordion { width: 100% !important; box-sizing: border-box !important; }
+
+    /* =======================================================
+       📱 MOBILE POLISH: NAV, TOGGLE, & CART FIXES
+       ======================================================= */
+
+    /* 1. CURE THE "Ca1" CART SQUISH */
+    .mobile-app-nav .app-nav-item { position: relative !important; }
+    .mobile-app-nav .cart-badge {
+        position: absolute !important;
+        top: 2px !important;
+        right: 25% !important; /* Pulls it away from the text */
+        font-size: 10px !important;
+        padding: 2px 5px !important;
+        transform: translate(50%, 0) !important;
+        white-space: nowrap !important;
+    }
+
+    /* 2. BRING BACK THE DARK MODE TOGGLE */
+    .ultra-actions { 
+        display: flex !important; 
+        align-items: center !important; 
+        gap: 10px !important; 
+    }
+    .theme-switch { display: inline-block !important; margin-right: 5px !important; }
+
+    /* 3. FIX THE "ADD NEW +" COLLISION ON CART PAGE */
+    .step-header {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        flex-wrap: wrap !important; /* Allows them to stack if screen is too tiny */
+        gap: 10px !important;
+    }
+    .step-header h3 { 
+        font-size: 15px !important; 
+        white-space: nowrap !important; 
+        margin: 0 !important; 
+    }
+    .add-new-address-btn { 
+        font-size: 11px !important; 
+        padding: 5px 10px !important; 
+        white-space: nowrap !important; 
+        margin-left: auto !important; /* Pushes it to the far right */
+    }
 }
 
 /* =======================================================
