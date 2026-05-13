@@ -573,723 +573,91 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* =======================================================
-   📱 TOP-TIER NATIVE APP ENGINE (Zepto/Swiggy Layout)
-   ======================================================= */
 
 /* Hide Mobile Nav on Desktop */
 .mobile-app-nav { display: none; }
 
-@media (max-width: 768px) {
-    /* 1. Core App Physics */
-    body { padding-bottom: 70px !important; overflow-x: hidden; width: 100%; background: #f8f9fa; }
-    .main-wrapper { margin: 0 !important; padding: 0 15px !important; }
-
-    /* 2. Activate Bottom App Navigation */
-    .mobile-app-nav {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 65px;
-        background: #ffffff;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
-        z-index: 9999;
-        border-top: 1px solid #eaeaea;
-    }
-    .app-nav-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #666;
-        text-decoration: none;
-        gap: 4px;
-        position: relative;
-    }
-    .app-nav-item i { font-size: 20px; transition: 0.2s; }
-    .app-nav-item span { font-size: 11px; font-weight: 600; }
-    .app-nav-item.active { color: #ff6b6b; }
-    
-    .cart-badge {
-        position: absolute;
-        top: -5px;
-        right: -10px;
-        background: #ff6b6b;
-        color: white;
-        font-size: 10px;
-        font-weight: bold;
-        padding: 2px 6px;
-        border-radius: 10px;
-        display: none; /* JS will toggle this to flex when items > 0 */
-    }
-
-    /* 3. Restructure Header & Kill Desktop Icons */
-    .ultra-header { padding: 10px 0 !important; background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
-    .header-content { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; padding: 0 15px !important; }
-    .ultra-actions { display: none !important; } /* NUKE DESKTOP BUTTONS */
-    
-    /* 4. Zepto Search Bar (Full Width, Top Row) */
-    .ultra-search { 
-        width: 100% !important; 
-        max-width: 100% !important;
-        margin: 0 !important;
-        background: #f1f3f6 !important;
-        border: none !important;
-        border-radius: 12px !important;
-        padding: 12px 15px !important;
-    }
-    .ultra-search input { background: transparent !important; font-size: 14px !important; }
-
-    /* 5. Swipeable App Categories */
-    .bento-tiles-grid { 
-        display: flex !important; 
-        overflow-x: auto !important; 
-        scroll-snap-type: x mandatory; 
-        gap: 15px !important; 
-        padding-bottom: 10px !important; 
-        margin-top: 15px;
-    }
-    .bento-tiles-grid::-webkit-scrollbar { display: none; }
-    .bento-tile { 
-        min-width: 70px !important; 
-        padding: 0 !important; 
-        border: none !important; 
-        box-shadow: none !important; 
-        background: transparent !important; 
-        scroll-snap-align: start;
-    }
-    .bento-tile img { width: 65px !important; height: 65px !important; border-radius: 50% !important; object-fit: cover !important; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
-    .bento-tile h4 { font-size: 11px !important; text-align: center !important; margin-top: 8px !important; font-weight: 600; }
-
-    /* 6. Zepto 2-Column Grid for Dishes */
-    .dish-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; margin-top: 15px; }
-    .dish-card { border-radius: 12px !important; box-shadow: 0 2px 8px rgba(0,0,0,0.04); background: white; }
-    .dish-img-wrapper { height: 110px !important; border-radius: 12px 12px 0 0 !important; }
-    .dish-info { padding: 10px !important; }
-    .title-row h3 { font-size: 13px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80%; }
-
-    /* 7. The 2x2 Footer Grid Fix (Bringing Quick Links Back!) */
-    .cravix-footer { padding: 40px 20px 80px !important; } /* Extra padding bottom for app bar */
-    .footer-grid-strict { 
-        display: grid !important; 
-        grid-template-columns: repeat(2, 1fr) !important; /* Forces 2 columns */
-        gap: 30px 15px !important; 
-    }
-    .foot-col { text-align: left !important; }
-    .footer-logo { font-size: 20px !important; }
-    .footer-desc { font-size: 12px !important; padding: 0 !important; }
-    .foot-col h4 { font-size: 14px !important; margin-bottom: 12px !important; }
-    .foot-col ul li a { font-size: 13px !important; }
-    .foot-col:first-child { grid-column: span 2; } /* Makes the Logo section full width at the top */
-
-   
-
-    /* 1. HERO BANNER: THE JS-KILLER */
-    .mega-hero-container, .mega-slider, .mega-slide { 
-        height: 200px !important; 
-        min-height: 200px !important;
-        max-height: 200px !important;
-        overflow: hidden !important; 
-        text-align: left !important;
-        align-items: flex-start !important;
-    }
-    .mega-slide {
-        padding: 20px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: left !important;
-        text-align: left !important;
-        align-items: flex-start !important;
-    }
-    .mega-content h1, .mega-content h2 { 
-        font-size: 18px !important; 
-        line-height: 1.2 !important; 
-        margin-bottom: 10px !important; 
-        text-align: left !important;
-        text-align: left !important;
-        align-items: flex-start !important;
-    }
-    .mega-content p, .slider-dots { display: none !important; }
-    .mega-btn { font-size: 12px !important; padding: 8px 15px !important; margin: 0 !important; text-align: left !important;
-        align-items: flex-start !important;}
-    
-    /* 2. DEALS BOARD: ZERO SHRINKAGE */
-    .offers-grid { 
-        display: flex !important; 
-        flex-wrap: nowrap !important; 
-        overflow-x: auto !important; 
-        gap: 15px !important; 
-        padding-bottom: 10px !important;
-    }
-    .offer-card { 
-        flex: 0 0 260px !important; /* MAGIC FIX: 0 shrink, exactly 260px wide */
-        height: 130px !important; /* Exact height locked */
-        padding: 15px !important; 
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        box-sizing: border-box !important;
-    }
-    .offer-card h3 { font-size: 16px !important; margin: 0 0 5px 0 !important; }
-    .offer-card p { font-size: 12px !important; margin: 0 0 10px 0 !important; }
-    .offer-code { font-size: 11px !important; margin: 0 !important; width: fit-content !important; }
-
-    /* 3. TOP BRANDS: LOGO DISTORTION FIX */
-    .restaurant-grid { 
-        display: grid !important; 
-        grid-template-columns: repeat(2, 1fr) !important; 
-        gap: 15px !important; 
-    }
-    .rest-card { 
-        padding: 10px !important; 
-        height: auto !important; 
-        display: flex !important;
-        flex-direction: column !important;
-    }
-    .rest-img { 
-        width: 100% !important; 
-        height: 75px !important; 
-        object-fit: contain !important; /* STOPS THE LOGOS FROM ZOOMING IN */
-        padding: 5px !important;
-        background: #f8f9fa !important; /* Adds a clean background behind logos */
-        border-radius: 8px !important; 
-        margin-bottom: 10px !important;
-    }
-    .rest-details h4 { font-size: 13px !important; line-height: 1.3 !important; white-space: normal !important; margin-bottom: 4px !important; }
-    .rest-desc { font-size: 11px !important; line-height: 1.3 !important; white-space: normal !important; color: #666 !important; }
-    .rest-meta { margin-top: 10px !important; }
-
-    /* 4. CATEGORIES: PERFECT 2-ROW ALIGNMENT */
-    .bento-tiles-grid { 
-        display: grid !important; 
-        grid-template-rows: repeat(2, 1fr) !important; 
-        grid-auto-columns: 75px !important; 
-        grid-auto-flow: column !important; 
-        gap: 10px !important; 
-        overflow-x: auto !important; 
-        padding-bottom: 10px !important;
-    }
-    .bento-tile { width: 100% !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
-    .bento-tile img { width: 55px !important; height: 55px !important; margin: 0 auto !important; }
-    .bento-tile h4 { font-size: 10px !important; margin-top: 6px !important; }
-
-    
-   /* =======================================================
-   🛒 GLOBAL CART HEADER FIX (Applies to Laptop & Mobile)
-   ======================================================= */
-.cart-header-fix {
-    display: flex !important;
-    flex-direction: row !important; 
-    justify-content: space-between !important; 
-    align-items: center !important;
-    width: 100% !important;
-    padding: 10px 15px !important;
-}
-.cart-header-fix .logo-link { margin: 0 !important; }
-.secure-checkout-tag { font-weight: 700; color: #28a745; display: flex; align-items: center; gap: 5px; }
-
 /* =======================================================
-   📱 MOBILE ONLY CART ENGINE (THE IRON CAGE)
-   ======================================================= */
-@media (max-width: 768px) {
-    
-    .checkout-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        margin-top: 10px !important;
-    }
-    
-    .checkout-left, .checkout-right {
-        display: contents !important; 
-    }
-
-    #box-account { order: 1 !important; width: 100% !important; margin-bottom: 0 !important; }
-    #box-food    { order: 2 !important; width: 100% !important; margin-bottom: 0 !important; }
-    #box-address { order: 3 !important; width: 100% !important; margin-bottom: 0 !important; }
-    #box-payment { order: 4 !important; width: 100% !important; margin-bottom: 0 !important; }
-
-    .checkout-bento, .cart-summary-bento {
-        background: #ffffff !important;
-        border-radius: 16px !important;
-        padding: 20px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important;
-        border: 1px solid #f0f0f0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .address-content, .payment-content {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-    }
-    .address-card, .payment-accordion { width: 100% !important; box-sizing: border-box !important; }
-
-    /* =======================================================
-       📱 MOBILE POLISH: NAV, TOGGLE, & CART FIXES
-       ======================================================= */
-
-    /* 1. CURE THE "Ca1" CART SQUISH */
-    .mobile-app-nav .app-nav-item { position: relative !important; }
-    .mobile-app-nav .cart-badge {
-        position: absolute !important;
-        top: 2px !important;
-        right: 25% !important; /* Pulls it away from the text */
-        font-size: 10px !important;
-        padding: 2px 5px !important;
-        transform: translate(50%, 0) !important;
-        white-space: nowrap !important;
-    }
-
-    /* 2. BRING BACK THE DARK MODE TOGGLE */
-    .ultra-actions { 
-        display: flex !important; 
-        align-items: center !important; 
-        gap: 10px !important; 
-    }
-    .theme-switch { display: inline-block !important; margin-right: 5px !important; }
-
-    /* 3. FIX THE "ADD NEW +" COLLISION ON CART PAGE */
-    .step-header {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        flex-wrap: wrap !important; /* Allows them to stack if screen is too tiny */
-        gap: 10px !important;
-    }
-    .step-header h3 { 
-        font-size: 15px !important; 
-        white-space: nowrap !important; 
-        margin: 0 !important; 
-    }
-    .add-new-address-btn { 
-        font-size: 11px !important; 
-        padding: 5px 10px !important; 
-        white-space: nowrap !important; 
-        margin-left: auto !important; /* Pushes it to the far right */
-    }
-}
-
-/* =======================================================
-       🍔 TOP-TIER RESTAURANT MENU (Swiggy/Zomato Layout)
-       ======================================================= */
-    
-    /* 1. HERO SECTION: 3D LOGO OVERLAP */
-    .rest-hero-banner { 
-        border-radius: 0 0 24px 24px !important; 
-        margin: -10px -15px 20px -15px !important; /* Pulls banner to the absolute edge */
-        border: none !important; 
-    }
-    .rest-hero-bg { height: 160px !important; border-radius: 0 0 24px 24px !important; }
-    .rest-hero-content { 
-        flex-direction: column !important; 
-        align-items: flex-start !important; 
-        padding: 15px !important; 
-        gap: 10px !important; 
-    }
-    
-    /* Pull the logo UP to overlap the banner */
-    .rest-hero-logo { 
-        width: 80px !important; 
-        height: 80px !important; 
-        margin-top: 10px !important; 
-        border-radius: 16px !important; 
-        padding: 8px !important; 
-        z-index: 10 !important;
-    }
-    
-    .rest-info-primary h2 { font-size: 22px !important; line-height: 1.2 !important;}
-    .rest-info-secondary { align-items: flex-start !important; gap: 10px !important; width: 100% !important; }
-    .mega-rating { font-size: 14px !important; padding: 6px 12px !important; }
-    .rest-offers-row { overflow-x: auto !important; width: 100% !important; padding-bottom: 10px !important; }
-    .offer-pill { white-space: nowrap !important; }
-
-    /* 2. THE MAGIC HORIZONTAL SWIPE MENU (Kills the Ovulation) */
-    .menu-split-container { 
-        flex-direction: column !important; 
-        gap: 15px !important; 
-        padding-bottom: 80px !important; 
-    }
-    .menu-sidebar { 
-        width: 100vw !important; 
-        margin-left: -15px !important; 
-        padding: 0 15px !important; 
-        border-right: none !important; 
-        border-bottom: 1px solid var(--border-color) !important;
-        position: sticky !important; 
-        top: 65px !important; /* Locks right under your App Header */
-        background: var(--bg-color) !important;
-        z-index: 90 !important;
-        display: flex !important;
-        flex-direction: row !important;
-        overflow-x: auto !important;
-        white-space: nowrap !important;
-    }
-    .menu-sidebar::-webkit-scrollbar { display: none !important; } /* Hide the ugly scrollbar */
-    
-    /* Convert vertical links to horizontal tabs */
-    .menu-sidebar ul, .menu-sidebar li { display: inline-flex !important; flex-direction: row !important; margin: 0 !important; padding: 0 !important;}
-    .menu-sidebar a { 
-        padding: 12px 15px !important; 
-        border-right: none !important; 
-        border-bottom: 3px solid transparent !important; 
-        font-size: 14px !important;
-        display: inline-block !important;
-    }
-    .active-cat a { border-bottom: 3px solid var(--primary) !important; }
-
-    /* 3. MENU ITEMS: COMPACT APP LAYOUT */
-    .menu-item-row { padding: 20px 0 !important; gap: 15px !important; }
-    .item-text-part h4 { font-size: 16px !important; line-height: 1.3 !important; }
-    
-    /* Truncate long descriptions to 2 lines so they don't stretch */
-    .item-desc { 
-        font-size: 12px !important; 
-        max-width: 100% !important; 
-        display: -webkit-box !important; 
-        -webkit-line-clamp: 2 !important; 
-        -webkit-box-orient: vertical !important; 
-        overflow: hidden !important; 
-    }
-    
-    .item-image-part { width: 110px !important; height: 110px !important; justify-content: flex-start !important;}
-    .item-image-part img { width: 110px !important; height: 110px !important; border-radius: 16px !important; }
-
-    /* =======================================================
-       👤 TOP-TIER PROFILE & AUTH LOGIN ENGINE (MOBILE)
-       ======================================================= */
-
-    /* 1. THE PROFILE DASHBOARD STACK */
-    .profile-wrapper { padding-top: 10px !important; }
-    .profile-grid { 
-        flex-direction: column !important; 
-        gap: 20px !important; 
-    }
-    
-    /* Convert the huge sidebar into a sleek horizontal swipe bar */
-    .profile-sidebar { 
-        width: 100vw !important; 
-        margin-left: -15px !important; /* Pull to edges */
-        padding: 20px 15px 15px 15px !important; 
-        position: relative !important; 
-        top: 0 !important; 
-        border-radius: 0 !important;
-        border-right: none !important;
-        border-bottom: 1px solid var(--border-color) !important;
-    }
-    .profile-nav { 
-        display: flex !important; 
-        flex-direction: row !important; 
-        overflow-x: auto !important; 
-        white-space: nowrap !important; 
-        gap: 10px !important;
-        padding-bottom: 5px !important; 
-    }
-    .profile-nav::-webkit-scrollbar { display: none !important; }
-
-    /* 1. SLEEK PROFILE NAV TABS */
-    .profile-nav a { 
-        padding: 6px 14px !important; /* Smaller, sleeker padding */
-        font-size: 13px !important; 
-        border-radius: 20px !important; 
-        background: transparent !important;
-        border: 1px solid var(--border-color) !important;
-        display: inline-flex !important;
-        color: var(--text-muted) !important;
-    }
-    
-    /* Subtle tinted active state (Not a solid orange brick!) */
-    .profile-nav .active-nav { 
-        background: var(--primary-light) !important; 
-        color: var(--primary) !important; 
-        border-color: var(--primary) !important;
-        font-weight: 700 !important;
-    }
-    .profile-nav .logout-link { margin-top: 0 !important; border-color: rgba(220, 53, 69, 0.3) !important; color: #dc3545 !important;}
-
-    /* 2. FIX MASSIVE BUTTONS INSIDE PROFILE CONTENT */
-    .profile-main-content button, .profile-main-content .btn {
-        padding: 10px 20px !important; /* Shrinks the height */
-        font-size: 14px !important;
-        border-radius: 8px !important;
-        width: 100% !important; /* Keeps it aligned but not obnoxiously tall */
-        max-width: 300px !important; /* Stops it from stretching too wide on landscape */
-    }
-
-    .profile-tab-grid { grid-template-columns: 1fr !important; gap: 15px !important; }
-    .order-header { flex-direction: column !important; gap: 15px !important; align-items: flex-start !important; }
-    .order-actions { width: 100% !important; justify-content: space-between !important; }
-
-    /* 2. THE PREMIUM "BOTTOM SHEET" LOGIN MODAL */
-    .modal-overlay {
-        align-items: flex-end !important; /* Forces modal to the bottom of the screen */
-        padding: 0 !important;
-    }
-    .auth-modal-content { 
-        flex-direction: column !important; 
-        width: 100vw !important; 
-        height: auto !important; 
-        max-height: 85vh !important; /* Stops it from covering the whole screen */
-        border-radius: 30px 30px 0 0 !important; /* iPhone style curved top */
-        transform: translateY(100%) !important; /* Prepares it to slide UP */
-        margin: 0 !important;
-        overflow-y: auto !important;
-    }
-    .modal-overlay.active-modal .auth-modal-content {
-        transform: translateY(0) !important; /* Slides up smoothly */
-    }
-    
-    /* Shrink the image to a cool top banner */
-    .auth-left { 
-        width: 100% !important; 
-        height: 120px !important; 
-        padding: 20px !important; 
-    }
-    .auth-right { 
-        width: 100% !important; 
-        padding: 30px 20px 40px 20px !important; 
-    }
-    
-    .auth-step h3 { font-size: 24px !important; }
-    #closeAuthModal { top: 15px !important; right: 20px !important; background: rgba(0,0,0,0.5) !important; border-radius: 50% !important; width: 35px !important; height: 35px !important; display: flex !important; align-items: center !important; justify-content: center !important; color: white !important; font-size: 20px !important;}
-}
-/* =======================================================
-   📱 MOBILE ONLY CART ENGINE (THE IRON CAGE)
-   ======================================================= */
-@media (max-width: 768px) {
-    
-
-
-    /* =======================================================
-   🛒 GLOBAL CART HEADER FIX (Applies to Laptop & Mobile)
-   ======================================================= */
-.cart-header-fix {
-    display: flex !important;
-    flex-direction: row !important; 
-    justify-content: space-between !important; 
-    align-items: center !important;
-    width: 100% !important;
-    padding: 10px 15px !important;
-}
-.cart-header-fix .logo-link { margin: 0 !important; }
-.secure-checkout-tag { font-weight: 700; color: #28a745; display: flex; align-items: center; gap: 5px; }
-
-    .checkout-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-        margin-top: 10px !important;
-    }
-    
-    .checkout-left, .checkout-right {
-        display: contents !important; 
-    }
-
-    #box-account { order: 1 !important; width: 100% !important; margin-bottom: 0 !important; }
-    #box-food    { order: 2 !important; width: 100% !important; margin-bottom: 0 !important; }
-    #box-address { order: 3 !important; width: 100% !important; margin-bottom: 0 !important; }
-    #box-payment { order: 4 !important; width: 100% !important; margin-bottom: 0 !important; }
-
-    .checkout-bento, .cart-summary-bento {
-        background: #ffffff !important;
-        border-radius: 16px !important;
-        padding: 20px !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important;
-        border: 1px solid #f0f0f0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .address-content, .payment-content {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 15px !important;
-    }
-    .address-card, .payment-accordion { width: 100% !important; box-sizing: border-box !important; }
-}
-
-/* =======================================================
-   🛰️ LIVE ORDER TRACKING ENGINE (ZEPTO STYLE)
+   🛰️ LIVE ORDER TRACKING ENGINE (DESKTOP)
    ======================================================= */
 .tracking-bg { background: var(--bg-color); }
 .order-track-wrapper { padding: 40px 0; }
 .order-track-grid { display: grid; grid-template-columns: 1fr 400px; gap: 30px; align-items: start; }
-
-/* MAP PHYSICS */
-.map-container { 
-    height: 600px; 
-    border-radius: 24px; 
-    overflow: hidden; 
-    position: relative; 
-    background: #e5e5e5;
-    box-shadow: var(--shadow);
-}
+.map-container { height: 600px; border-radius: 24px; overflow: hidden; position: relative; background: #e5e5e5; box-shadow: var(--shadow); }
 .map-image-mock { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.5); }
 .driver-marker { position: absolute; top: 45%; left: 45%; transform: translate(-50%, -50%); z-index: 10; }
-.marker-pulse { 
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 60px; height: 60px; background: rgba(255, 107, 53, 0.3);
-    border-radius: 50%; animation: pulse-ring 1.5s infinite;
-}
+.marker-pulse { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(255, 107, 53, 0.3); border-radius: 50%; animation: pulse-ring 1.5s infinite; }
 @keyframes pulse-ring { 0% { transform: translate(-50%, -50%) scale(0.3); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; } }
-
-/* SIDEBAR & TIMELINE */
 .status-bento { background: var(--card-bg); padding: 25px; border-radius: 20px; margin-bottom: 20px; border: 1px solid var(--border-color); }
 .eta-card { background: linear-gradient(135deg, #111 0%, #333 100%); color: white; border: none; }
 .eta-time { font-size: 48px; font-weight: 900; color: #ffaa00; margin: 10px 0; }
 .track-timeline { position: relative; margin-top: 20px; padding-left: 20px; }
 .track-timeline::before { content: ''; position: absolute; left: 0; top: 5px; width: 2px; height: 90%; background: var(--border-color); }
-
 .time-step { display: flex; gap: 20px; padding-bottom: 30px; position: relative; }
-.icon-point { 
-    width: 30px; height: 30px; background: var(--card-bg); border: 2px solid var(--border-color);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    position: absolute; left: -34px; z-index: 2; font-size: 14px;
-}
+.icon-point { width: 30px; height: 30px; background: var(--card-bg); border: 2px solid var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: absolute; left: -34px; z-index: 2; font-size: 14px; }
 .step-complete .icon-point { background: #28a745; border-color: #28a745; color: white; }
 .step-active .icon-point { background: #ffaa00; border-color: #ffaa00; animation: bounce 1s infinite; }
 
-/* MOBILE RESPONSIVE TRACKING */
-@media (max-width: 768px) {
-    .order-track-grid { grid-template-columns: 1fr; }
-    .map-container { height: 300px; border-radius: 0; margin: -20px -15px 20px -15px; }
-    .status-sidebar { padding: 0 5px; }
-}
-
 /* =======================================================
-   🛰️ LIVE TRACKING APP POLISH (ORDER-STATUS)
-   ======================================================= */
-
-@media (max-width: 768px) {
-    /* 1. Make Map Edge-to-Edge with Curved Bottom */
-    .map-container, .tracking-map {
-        height: 35vh !important; /* Takes up top 35% of phone screen */
-        margin: -10px -15px 0 -15px !important; /* Pulls map to the absolute edges */
-        border-radius: 0 0 24px 24px !important; 
-        position: relative !important;
-        z-index: 1 !important;
-    }
-
-    /* 2. Float the ETA Card Over the Map */
-    .eta-card, .status-bento:first-of-type {
-        margin-top: -40px !important; /* Pulls the card UP to overlap the map */
-        position: relative !important;
-        z-index: 10 !important;
-        border-radius: 16px !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important; /* Adds heavy shadow for 3D float effect */
-        background: #111 !important; /* Ensures the dark card stays sleek */
-    }
-
-    /* 3. Tighten the Timeline for Thumb Scrolling */
-    .track-timeline {
-        padding: 15px 0 0 10px !important;
-        margin-top: 15px !important;
-    }
-    .time-step {
-        padding-bottom: 25px !important;
-        gap: 15px !important;
-    }
-    .step-details h4 {
-        font-size: 15px !important;
-        margin-bottom: 2px !important;
-    }
-    .step-details p {
-        font-size: 12px !important;
-        line-height: 1.3 !important;
-    }
-
-    /* 4. Compact Driver Info Card */
-    .driver-info-card, .driver-info {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        padding: 15px !important;
-        background: #f4f5f7 !important;
-        border-radius: 16px !important;
-        margin-top: 10px !important;
-        border: none !important;
-    }
-    .driver-img {
-        width: 50px !important;
-        height: 50px !important;
-        border-radius: 50% !important; /* Make driver pic a perfect circle */
-    }
-}
-
-
-/* PREMIUM TYPOGRAPHY LOGO */
-
-.logo-link { text-decoration: none; display: flex; align-items: center; }
-.logo-text-crav { font-size: 26px; font-weight: 900; color: #111; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
-.logo-text-ix { font-size: 26px; font-weight: 900; color: #ff6b6b; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
-
-
-/* =======================================================
-   🔐 THE VIP HORIZONTAL MOBILE MODAL
+   📱 THE MASTER MOBILE IRON CAGE (Max Width 768px)
    ======================================================= */
 @media (max-width: 768px) {
-    /* 1. Float it perfectly in the center */
-    #auth-modal {
-        align-items: center !important; /* Pulls it up from the bottom */
-        padding: 15px !important;
-    }
     
-    /* 2. Horizontal Magic & Rounded Corners (Folded Bottom) */
-    .auth-modal-content {
-        flex-direction: row !important; /* Forces Horizontal Layout! */
-        width: 95vw !important;
-        max-width: 420px !important;
-        height: auto !important;
-        min-height: 380px !important;
-        border-radius: 24px !important; /* Folds ALL corners perfectly */
-        margin: 0 auto !important;
-        overflow: hidden !important;
-    }
-
-    /* 3. Image on the Left */
-    .auth-left {
-        width: 38% !important; /* Takes up the left side */
-        height: auto !important;
-        min-height: 100% !important;
-        padding: 0 !important;
-    }
-    /* Hide text on the image so the pizza looks super clean */
-    .auth-glass-panel { display: none !important; } 
+    /* CORE APP PHYSICS & NAVIGATION */
+    body { padding-bottom: 70px !important; overflow-x: hidden; width: 100%; }
+    .main-wrapper { margin: 0 !important; padding: 0 15px !important; }
+    .ultra-actions { display: none !important; } /* NUKE TOP ICONS */
     
-    /* 4. Form on the Right (Left-Aligned Text) */
-    .auth-right {
-        width: 62% !important;
-        padding: 25px 15px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: flex-start !important; /* Locks everything to the left */
+    .mobile-app-nav {
+        display: flex !important; justify-content: space-around; align-items: center;
+        position: fixed; bottom: 0; left: 0; width: 100%; height: 65px;
+        background: #ffffff; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); z-index: 9999;
     }
+    .app-nav-item { display: flex; flex-direction: column; align-items: center; color: #666; text-decoration: none; position: relative; }
+    .app-nav-item span:first-child { font-size: 20px !important; margin-bottom: 2px; }
+    .app-nav-item span:last-child { font-size: 11px; font-weight: 600; }
+    .app-nav-item.active { color: var(--primary); }
+    .cart-badge { position: absolute; top: -5px; right: 10%; background: #ff6b6b; color: white; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 10px; }
 
-    /* Strict Left Alignment */
-    .auth-step { width: 100% !important; text-align: left !important; }
-    .auth-step h3 { font-size: 20px !important; text-align: left !important; margin-bottom: 2px !important; }
-    .auth-subtitle { font-size: 12px !important; text-align: left !important; margin-bottom: 20px !important; }
-    .auth-terms { text-align: left !important; font-size: 10px !important; margin-top: 15px !important; }
-    
-    /* Resize inputs to fit the sleek horizontal card */
-    .input-group input { padding: 12px !important; font-size: 13px !important; }
-    .auth-action-btn, .google-auth-btn { padding: 12px !important; font-size: 14px !important; }
+    /* HEADER & SEARCH */
+    .ultra-header { padding: 10px 0 !important; }
+    .header-content { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; padding: 0 15px !important; }
+    .ultra-search { width: 100% !important; max-width: 100% !important; margin: 0 !important; background: #f1f3f6 !important; border-radius: 12px !important; padding: 12px 15px !important; }
 
-    /* Dark X Button for the white background */
-    #closeAuthModal, .close-modal {
-        top: 10px !important;
-        right: 10px !important;
-        background: #f4f5f7 !important;
-        color: #111 !important;
-        width: 28px !important;
-        height: 28px !important;
-        font-size: 16px !important;
-    }
+    /* CART & CHECKOUT PAGE FIXES */
+    .checkout-grid { display: flex !important; flex-direction: column !important; gap: 15px !important; margin-top: 10px !important; }
+    #box-account { order: 1 !important; } #box-food { order: 2 !important; } #box-address { order: 3 !important; } #box-payment { order: 4 !important; }
+    .step-header { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 5px !important; position: relative !important; }
+    .add-new-address-btn { position: relative !important; top: auto !important; transform: none !important; margin-top: 10px !important; background: var(--primary-light) !important; padding: 8px 16px !important; border-radius: 8px !important; }
+
+    /* RESTAURANT MENU PAGE (SWIGGY SWIPE) */
+    .rest-hero-banner { margin: -10px -15px 20px -15px !important; border-radius: 0 0 24px 24px !important; }
+    .rest-hero-bg { height: 160px !important; border-radius: 0 0 24px 24px !important; }
+    .rest-hero-content { flex-direction: column !important; align-items: flex-start !important; padding: 15px !important; }
+    .rest-hero-logo { width: 80px !important; height: 80px !important; margin-top: -50px !important; z-index: 10 !important; }
+    .menu-sidebar { width: 100vw !important; margin-left: -15px !important; padding: 0 15px !important; position: sticky !important; top: 65px !important; display: flex !important; flex-direction: row !important; overflow-x: auto !important; white-space: nowrap !important; border-bottom: 1px solid var(--border-color) !important; z-index: 90 !important;}
+    .menu-sidebar ul { flex-direction: row !important; }
+    .menu-sidebar a { padding: 12px 15px !important; border-bottom: 3px solid transparent !important; display: inline-block !important; }
+    .active-cat a { border-bottom: 3px solid var(--primary) !important; }
+
+    /* PROFILE DASHBOARD FIXES */
+    .profile-sidebar { width: 100vw !important; margin-left: -15px !important; padding: 15px !important; border-radius: 0 !important; position: relative !important; top: 0 !important; border-bottom: 1px solid var(--border-color) !important; }
+    .profile-nav { flex-direction: row !important; overflow-x: auto !important; white-space: nowrap !important; gap: 10px !important; padding-bottom: 10px !important; }
+    .profile-nav a { padding: 8px 16px !important; font-size: 13px !important; border-radius: 20px !important; background: transparent !important; border: 1px solid var(--border-color) !important; }
+    .profile-nav .active-nav { background: var(--primary-light) !important; color: var(--primary) !important; border-color: var(--primary) !important; }
+
+    /* VIP HORIZONTAL AUTH MODAL */
+    #auth-modal { align-items: center !important; padding: 15px !important; }
+    .auth-modal-content { flex-direction: row !important; width: 95vw !important; height: auto !important; min-height: 380px !important; border-radius: 24px !important; }
+    .auth-left { width: 38% !important; padding: 0 !important; }
+    .auth-glass-panel { display: none !important; }
+    .auth-right { width: 62% !important; padding: 25px 15px !important; align-items: flex-start !important; }
+    .auth-step { text-align: left !important; }
+    .auth-step h3 { font-size: 20px !important; text-align: left !important; }
+    #closeAuthModal { top: 10px !important; right: 10px !important; background: #f4f5f7 !important; color: #111 !important; width: 28px !important; height: 28px !important; font-size: 16px !important; }
+
+    /* LIVE ORDER TRACKING (MAP FIX) */
+    .order-track-grid { grid-template-columns: 1fr !important; }
+    .map-container { height: 35vh !important; margin: -10px -15px 0 -15px !important; border-radius: 0 0 24px 24px !important; z-index: 1 !important; }
+    .eta-card { margin-top: -40px !important; position: relative !important; z-index: 10 !important; border-radius: 16px !important; }
 }

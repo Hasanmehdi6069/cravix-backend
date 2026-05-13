@@ -827,8 +827,9 @@ document.addEventListener('DOMContentLoaded', () => {
             brandsTitle.style.display = 'none';
             dishesTitle.style.display = 'none';
             noResultsMsg.style.display = 'none';
-
+            
             if (!query) return;
+            const q = query.toLowerCase(); // 🟢 THIS PREVENTS THE CRASH
 
             try {
                 // Fetch ALL data from the Vault

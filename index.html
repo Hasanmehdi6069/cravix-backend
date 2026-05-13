@@ -19,7 +19,7 @@
             
             <div class="ultra-search">
                 <span class="search-icon">🔍</span>
-                <input type="search" id="cravix-main-search" placeholder="Search for top brands, dishes..." autocomplete="off" data-lpignore="true" readonly onfocus="this.removeAttribute('readonly');">
+                <input type="search" id="brand-dish-finder" name="search_query_cravix" placeholder="Search for top brands, dishes..." autocomplete="off" data-lpignore="true">
             </div>
 
             <div class="ultra-actions">
@@ -410,23 +410,24 @@
 
     <nav class="mobile-app-nav">
         <a href="index.html" class="app-nav-item active">
-            <i class="fa-solid fa-house"></i>
+            <span style="font-size: 20px;">🏠</span>
             <span>Home</span>
         </a>
         <a href="#categories" class="app-nav-item">
-            <i class="fa-solid fa-shapes"></i>
+            <span style="font-size: 20px;">🗂️</span>
             <span>Categories</span>
         </a>
         <a href="Cart.html" class="app-nav-item cart-nav-item">
-            <i class="fa-solid fa-bag-shopping"></i>
+            <span style="font-size: 20px;">🛒</span>
             <span>Cart</span>
             <span class="cart-badge" id="mobileCartBadge">0</span>
         </a>
-        <a href="#" class="app-nav-item profile-btn"></a>
-            <i class="fa-regular fa-user"></i>
+        <a href="#" class="app-nav-item profile-btn">
+            <span style="font-size: 20px;">👤</span>
             <span>Profile</span>
         </a>
     </nav>
+    
     <script src="script.js"></script>
 </body>
 </html>
