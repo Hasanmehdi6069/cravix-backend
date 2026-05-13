@@ -830,14 +830,198 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     }
     .address-card, .payment-accordion { width: 100% !important; box-sizing: border-box !important; }
 }
-}
-/* PREMIUM TYPOGRAPHY LOGO */
-
-.logo-link { text-decoration: none; display: flex; align-items: center; }
-.logo-text-crav { font-size: 26px; font-weight: 900; color: #111; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
-.logo-text-ix { font-size: 26px; font-weight: 900; color: #ff6b6b; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
 
 /* =======================================================
+       🍔 TOP-TIER RESTAURANT MENU (Swiggy/Zomato Layout)
+       ======================================================= */
+    
+    /* 1. HERO SECTION: 3D LOGO OVERLAP */
+    .rest-hero-banner { 
+        border-radius: 0 0 24px 24px !important; 
+        margin: -10px -15px 20px -15px !important; /* Pulls banner to the absolute edge */
+        border: none !important; 
+    }
+    .rest-hero-bg { height: 160px !important; border-radius: 0 0 24px 24px !important; }
+    .rest-hero-content { 
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        padding: 15px !important; 
+        gap: 10px !important; 
+    }
+    
+    /* Pull the logo UP to overlap the banner */
+    .rest-hero-logo { 
+        width: 80px !important; 
+        height: 80px !important; 
+        margin-top: 10px !important; 
+        border-radius: 16px !important; 
+        padding: 8px !important; 
+        z-index: 10 !important;
+    }
+    
+    .rest-info-primary h2 { font-size: 22px !important; line-height: 1.2 !important;}
+    .rest-info-secondary { align-items: flex-start !important; gap: 10px !important; width: 100% !important; }
+    .mega-rating { font-size: 14px !important; padding: 6px 12px !important; }
+    .rest-offers-row { overflow-x: auto !important; width: 100% !important; padding-bottom: 10px !important; }
+    .offer-pill { white-space: nowrap !important; }
+
+    /* 2. THE MAGIC HORIZONTAL SWIPE MENU (Kills the Ovulation) */
+    .menu-split-container { 
+        flex-direction: column !important; 
+        gap: 15px !important; 
+        padding-bottom: 80px !important; 
+    }
+    .menu-sidebar { 
+        width: 100vw !important; 
+        margin-left: -15px !important; 
+        padding: 0 15px !important; 
+        border-right: none !important; 
+        border-bottom: 1px solid var(--border-color) !important;
+        position: sticky !important; 
+        top: 65px !important; /* Locks right under your App Header */
+        background: var(--bg-color) !important;
+        z-index: 90 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+    }
+    .menu-sidebar::-webkit-scrollbar { display: none !important; } /* Hide the ugly scrollbar */
+    
+    /* Convert vertical links to horizontal tabs */
+    .menu-sidebar ul, .menu-sidebar li { display: inline-flex !important; flex-direction: row !important; margin: 0 !important; padding: 0 !important;}
+    .menu-sidebar a { 
+        padding: 12px 15px !important; 
+        border-right: none !important; 
+        border-bottom: 3px solid transparent !important; 
+        font-size: 14px !important;
+        display: inline-block !important;
+    }
+    .active-cat a { border-bottom: 3px solid var(--primary) !important; }
+
+    /* 3. MENU ITEMS: COMPACT APP LAYOUT */
+    .menu-item-row { padding: 20px 0 !important; gap: 15px !important; }
+    .item-text-part h4 { font-size: 16px !important; line-height: 1.3 !important; }
+    
+    /* Truncate long descriptions to 2 lines so they don't stretch */
+    .item-desc { 
+        font-size: 12px !important; 
+        max-width: 100% !important; 
+        display: -webkit-box !important; 
+        -webkit-line-clamp: 2 !important; 
+        -webkit-box-orient: vertical !important; 
+        overflow: hidden !important; 
+    }
+    
+    .item-image-part { width: 110px !important; height: 110px !important; justify-content: flex-start !important;}
+    .item-image-part img { width: 110px !important; height: 110px !important; border-radius: 16px !important; }
+
+    /* =======================================================
+       👤 TOP-TIER PROFILE & AUTH LOGIN ENGINE (MOBILE)
+       ======================================================= */
+
+    /* 1. THE PROFILE DASHBOARD STACK */
+    .profile-wrapper { padding-top: 10px !important; }
+    .profile-grid { 
+        flex-direction: column !important; 
+        gap: 20px !important; 
+    }
+    
+    /* Convert the huge sidebar into a sleek horizontal swipe bar */
+    .profile-sidebar { 
+        width: 100vw !important; 
+        margin-left: -15px !important; /* Pull to edges */
+        padding: 20px 15px 15px 15px !important; 
+        position: relative !important; 
+        top: 0 !important; 
+        border-radius: 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-color) !important;
+    }
+    .profile-nav { 
+        display: flex !important; 
+        flex-direction: row !important; 
+        overflow-x: auto !important; 
+        white-space: nowrap !important; 
+        gap: 10px !important;
+        padding-bottom: 5px !important; 
+    }
+    .profile-nav::-webkit-scrollbar { display: none !important; }
+
+    /* 1. SLEEK PROFILE NAV TABS */
+    .profile-nav a { 
+        padding: 6px 14px !important; /* Smaller, sleeker padding */
+        font-size: 13px !important; 
+        border-radius: 20px !important; 
+        background: transparent !important;
+        border: 1px solid var(--border-color) !important;
+        display: inline-flex !important;
+        color: var(--text-muted) !important;
+    }
+    
+    /* Subtle tinted active state (Not a solid orange brick!) */
+    .profile-nav .active-nav { 
+        background: var(--primary-light) !important; 
+        color: var(--primary) !important; 
+        border-color: var(--primary) !important;
+        font-weight: 700 !important;
+    }
+    .profile-nav .logout-link { margin-top: 0 !important; border-color: rgba(220, 53, 69, 0.3) !important; color: #dc3545 !important;}
+
+    /* 2. FIX MASSIVE BUTTONS INSIDE PROFILE CONTENT */
+    .profile-main-content button, .profile-main-content .btn {
+        padding: 10px 20px !important; /* Shrinks the height */
+        font-size: 14px !important;
+        border-radius: 8px !important;
+        width: 100% !important; /* Keeps it aligned but not obnoxiously tall */
+        max-width: 300px !important; /* Stops it from stretching too wide on landscape */
+    }
+
+    .profile-tab-grid { grid-template-columns: 1fr !important; gap: 15px !important; }
+    .order-header { flex-direction: column !important; gap: 15px !important; align-items: flex-start !important; }
+    .order-actions { width: 100% !important; justify-content: space-between !important; }
+
+    /* 2. THE PREMIUM "BOTTOM SHEET" LOGIN MODAL */
+    .modal-overlay {
+        align-items: flex-end !important; /* Forces modal to the bottom of the screen */
+        padding: 0 !important;
+    }
+    .auth-modal-content { 
+        flex-direction: column !important; 
+        width: 100vw !important; 
+        height: auto !important; 
+        max-height: 85vh !important; /* Stops it from covering the whole screen */
+        border-radius: 30px 30px 0 0 !important; /* iPhone style curved top */
+        transform: translateY(100%) !important; /* Prepares it to slide UP */
+        margin: 0 !important;
+        overflow-y: auto !important;
+    }
+    .modal-overlay.active-modal .auth-modal-content {
+        transform: translateY(0) !important; /* Slides up smoothly */
+    }
+    
+    /* Shrink the image to a cool top banner */
+    .auth-left { 
+        width: 100% !important; 
+        height: 120px !important; 
+        padding: 20px !important; 
+    }
+    .auth-right { 
+        width: 100% !important; 
+        padding: 30px 20px 40px 20px !important; 
+    }
+    
+    .auth-step h3 { font-size: 24px !important; }
+    #closeAuthModal { top: 15px !important; right: 20px !important; background: rgba(0,0,0,0.5) !important; border-radius: 50% !important; width: 35px !important; height: 35px !important; display: flex !important; align-items: center !important; justify-content: center !important; color: white !important; font-size: 20px !important;}
+}
+/* =======================================================
+   📱 MOBILE ONLY CART ENGINE (THE IRON CAGE)
+   ======================================================= */
+@media (max-width: 768px) {
+    
+
+
+    /* =======================================================
    🛒 GLOBAL CART HEADER FIX (Applies to Laptop & Mobile)
    ======================================================= */
 .cart-header-fix {
@@ -851,11 +1035,6 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
 .cart-header-fix .logo-link { margin: 0 !important; }
 .secure-checkout-tag { font-weight: 700; color: #28a745; display: flex; align-items: center; gap: 5px; }
 
-/* =======================================================
-   📱 MOBILE ONLY CART ENGINE (THE IRON CAGE)
-   ======================================================= */
-@media (max-width: 768px) {
-    
     .checkout-grid {
         display: flex !important;
         flex-direction: column !important;
@@ -995,5 +1174,77 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
         width: 50px !important;
         height: 50px !important;
         border-radius: 50% !important; /* Make driver pic a perfect circle */
+    }
+}
+
+
+/* PREMIUM TYPOGRAPHY LOGO */
+
+.logo-link { text-decoration: none; display: flex; align-items: center; }
+.logo-text-crav { font-size: 26px; font-weight: 900; color: #111; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
+.logo-text-ix { font-size: 26px; font-weight: 900; color: #ff6b6b; letter-spacing: -1px; font-family: 'Poppins', sans-serif; }
+
+
+/* =======================================================
+   🔐 THE VIP HORIZONTAL MOBILE MODAL
+   ======================================================= */
+@media (max-width: 768px) {
+    /* 1. Float it perfectly in the center */
+    #auth-modal {
+        align-items: center !important; /* Pulls it up from the bottom */
+        padding: 15px !important;
+    }
+    
+    /* 2. Horizontal Magic & Rounded Corners (Folded Bottom) */
+    .auth-modal-content {
+        flex-direction: row !important; /* Forces Horizontal Layout! */
+        width: 95vw !important;
+        max-width: 420px !important;
+        height: auto !important;
+        min-height: 380px !important;
+        border-radius: 24px !important; /* Folds ALL corners perfectly */
+        margin: 0 auto !important;
+        overflow: hidden !important;
+    }
+
+    /* 3. Image on the Left */
+    .auth-left {
+        width: 38% !important; /* Takes up the left side */
+        height: auto !important;
+        min-height: 100% !important;
+        padding: 0 !important;
+    }
+    /* Hide text on the image so the pizza looks super clean */
+    .auth-glass-panel { display: none !important; } 
+    
+    /* 4. Form on the Right (Left-Aligned Text) */
+    .auth-right {
+        width: 62% !important;
+        padding: 25px 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: flex-start !important; /* Locks everything to the left */
+    }
+
+    /* Strict Left Alignment */
+    .auth-step { width: 100% !important; text-align: left !important; }
+    .auth-step h3 { font-size: 20px !important; text-align: left !important; margin-bottom: 2px !important; }
+    .auth-subtitle { font-size: 12px !important; text-align: left !important; margin-bottom: 20px !important; }
+    .auth-terms { text-align: left !important; font-size: 10px !important; margin-top: 15px !important; }
+    
+    /* Resize inputs to fit the sleek horizontal card */
+    .input-group input { padding: 12px !important; font-size: 13px !important; }
+    .auth-action-btn, .google-auth-btn { padding: 12px !important; font-size: 14px !important; }
+
+    /* Dark X Button for the white background */
+    #closeAuthModal, .close-modal {
+        top: 10px !important;
+        right: 10px !important;
+        background: #f4f5f7 !important;
+        color: #111 !important;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 16px !important;
     }
 }

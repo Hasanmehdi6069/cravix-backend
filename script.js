@@ -842,23 +842,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 let matchedBrands = [];
                 let matchedDishes = [];
 
-                // The Search Algorithm
+                // ==========================================
+                // 🛡️ INDESTRUCTIBLE SEARCH ALGORITHM
+                // ==========================================
                 allData.forEach(rest => {
-                    // Check if the restaurant name or tags match
-                    if (rest.name.toLowerCase().includes(q) || rest.tags.toLowerCase().includes(q)) {
-                        matchedBrands.push(rest);
-                    }
+                    try {
+                        // Safely check name and tags
+                        const restName = rest.name ? String(rest.name).toLowerCase() : "";
+                        const restTags = rest.tags ? String(rest.tags).toLowerCase() : "";
+                        
+                        if (restName.includes(q) || restTags.includes(q)) {
+                            matchedBrands.push(rest);
+                        }
 
-                    // Look through every single menu category for matched dishes
-                    if (rest.menu) {
-                        Object.values(rest.menu).forEach(categoryArray => {
-                            categoryArray.forEach(dish => {
-                                if (dish.name.toLowerCase().includes(q) || dish.desc.toLowerCase().includes(q)) {
-                                    // Attach the restaurant info to the dish so the user knows where it's from!
-                                    matchedDishes.push({ ...dish, restId: rest.idKey, restName: rest.name });
+                        // Safely check if a menu actually exists!
+                        if (rest.menu && typeof rest.menu === 'object') {
+                            Object.values(rest.menu).forEach(categoryArray => {
+                                if (Array.isArray(categoryArray)) {
+                                    categoryArray.forEach(dish => {
+                                        const dishName = dish.name ? String(dish.name).toLowerCase() : "";
+                                        const dishDesc = dish.desc ? String(dish.desc).toLowerCase() : "";
+                                        
+                                        if (dishName.includes(q) || dishDesc.includes(q)) {
+                                            const safeId = rest._id || rest.id || rest.idKey || 'unknown_rest';
+                                            matchedDishes.push({ ...dish, restId: safeId, restName: rest.name });
+                                        }
+                                    });
                                 }
                             });
-                        });
+                        }
+                    } catch (error) {
+                        console.warn("Skipped a corrupted restaurant in search.");
                     }
                 });
 
@@ -1202,3 +1216,85 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+
+    /* ==========================================
+   🚪 TOP-TIER LOGOUT ENGINE
+   ========================================== */
+function handleLogout(event) {
+    // Stop the link from jumping to the top of the page
+    if (event) event.preventDefault(); 
+
+    // The CEO confirmation
+    const confirmLogout = confirm("CEO, are you sure you want to log out of the command center?");
+    
+    if (confirmLogout) {
+        // 1. Nuke everything in the browser's memory
+        localStorage.clear(); 
+        sessionStorage.clear();
+
+        // 2. Teleport back to the Home Page instantly
+        window.location.href = 'index.html';
+    }
+}
+
+/* ==========================================
+   🌍 DYNAMIC HOMEPAGE BRANDS INJECTION (LIVE BACKEND)
+   ========================================== */
+/* ==========================================
+   🌍 HYBRID BRAND INJECTION (Local + Live)
+   ========================================== */
+async function loadTopBrands() {
+    const brandsContainer = document.querySelector('.restaurant-grid');
+    if (!brandsContainer) return; 
+
+    let allBrands = [];
+
+    // 1. Pull from Local Admin Deployments FIRST (Instantly shows Taco Bell)
+    const localRest = JSON.parse(localStorage.getItem('cravix_restaurants')) || [];
+    allBrands = [...localRest];
+
+    // 2. Try to pull from Live Backend securely
+    try {
+        const res = await fetch(`${API_BASE_URL}/api/restaurants`);
+        const result = await res.json();
+        if (result.success && result.data && result.data.length > 0) {
+            allBrands = [...allBrands, ...result.data]; // Merge them!
+        }
+    } catch (error) {
+        console.warn("Live backend offline. Loading local admin data only.");
+    }
+
+    // 3. Render EVERYTHING to the screen without crashing
+    if (allBrands.length > 0) {
+        brandsContainer.innerHTML = ''; // Clear old hardcoded brands
+        // Reverse so the newest additions (Taco Bell) show up first!
+        allBrands.reverse().forEach(rest => {
+            try {
+                const safeId = rest._id || rest.id || rest.idKey || 'burgerking';
+                const logoImg = rest.logo || rest.logoUrl || 'https://via.placeholder.com/150'; 
+                
+                const restHTML = `
+                    <div class="rest-card" onclick="window.location.href='Restaurant.html?id=${safeId}'">
+                        <img src="${logoImg}" class="rest-img" alt="${rest.name || 'Restaurant'}">
+                        <div class="rest-details">
+                            <h4>${rest.name || 'New Brand'}</h4>
+                            <p class="rest-desc">${rest.tags || rest.cuisine || 'Delicious Food'}</p>
+                            <div class="rest-meta">
+                                <span class="star-rating">★ ${rest.rating || '4.5'}</span>
+                                <span class="dot">•</span>
+                                <span>${rest.loc || rest.location || '30 MINS'}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                brandsContainer.insertAdjacentHTML('beforeend', restHTML);
+            } catch (err) {
+                console.warn("Failed to render a brand card");
+            }
+        });
+    }
+}
+
+// Run this when the homepage loads
+document.addEventListener('DOMContentLoaded', loadTopBrands);
