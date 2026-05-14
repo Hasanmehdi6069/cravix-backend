@@ -1184,3 +1184,77 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
 [data-theme="dark"] .mobile-app-nav .app-nav-item.active span {
     color: var(--primary) !important;
 }
+
+/* =======================================================
+   🔥 THE BILLION-DOLLAR NOSH EMPIRE BRANDING
+   ======================================================= */
+.nosh-brand {
+    /* Uses native OS fonts for that razor-sharp, ultra-thick Apple/Google app feel */
+    font-family: -apple-system, BlinkMacSystemFont, "Arial Black", Roboto, sans-serif !important;
+    font-size: 34px !important;
+    font-weight: 900 !important;
+    color: #f04f23 !important; /* The Aggressive Food-Tech Hyper-Tangerine */
+    text-decoration: none !important;
+    letter-spacing: -2.5px !important; /* Squishes it tight */
+    display: flex !important;
+    align-items: baseline !important;
+    margin: 0 !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important; /* Completely kills the old gradient */
+}
+
+/* The Iconic Tech Startup Dot */
+.nosh-dot {
+    color: var(--text-main) !important; /* Stays Black in Light Mode, White in Dark Mode */
+    font-size: 38px !important;
+    margin-left: 2px !important;
+}
+
+/* Force Dark Mode Compatibility */
+[data-theme="dark"] .nosh-brand {
+    color: #FF5A1F !important; /* Slightly brighter neon orange for dark backgrounds */
+}
+
+/* =======================================================
+   🔥 THE TRUE NOSH EMPIRE (Gradient + The Smile)
+   ======================================================= */
+.nosh-brand {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 36px !important;
+    font-weight: 900 !important;
+    
+    /* The Unbeatable Cerulean-to-Tangerine Gradient */
+    background: linear-gradient(45deg, #6a95f3, #ff5a00) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    
+    text-decoration: none !important;
+    letter-spacing: -2px !important; 
+    display: inline-flex !important;
+    align-items: baseline !important;
+    margin: 0 !important;
+    position: relative !important; /* Required for the Smile */
+}
+
+/* The Startup Dot */
+.nosh-dot {
+    font-size: 40px !important;
+    -webkit-text-fill-color: #ff5a00 !important; 
+    margin-left: 2px !important;
+}
+
+/* 🚀 THE HIDDEN "AMAZON" SMILE / DELIVERY ROUTE */
+.nosh-brand::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -2px !important; /* Sits perfectly under the letters */
+    left: 2px !important;
+    width: 90% !important; /* Stretches across the word */
+    height: 12px !important;
+    border: solid transparent !important;
+    border-color: transparent transparent #ff5a00 transparent !important; /* Orange smile */
+    border-width: 0 0 4px 0 !important; /* Thickness of the smile */
+    border-radius: 50% !important; /* Curves it into a smile shape */
+    transform: rotate(-3deg) !important; /* Gives it that fast, cheeky upward tilt */
+    pointer-events: none !important;
+}

@@ -299,3 +299,51 @@ mongoose.connect(process.env.MONGO_URI)
     }
   }
 }
+
+* =======================================================
+   🔥 THE NOSH EMPIRE BRANDING (Top-Tier Gradient)
+   ======================================================= */
+.nosh-brand {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 34px !important;
+    font-weight: 900 !important;
+    
+    /* 1. The Premium Cerulean-to-Tangerine Gradient */
+    background: linear-gradient(45deg, #2466bc, #ff5a00) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    
+    text-decoration: none !important;
+    letter-spacing: -2.5px !important; 
+    display: flex !important;
+    align-items: center !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+}
+
+/* The Perfect Bite 'o' wrapper (Fixed Invisible 'o') */
+.nosh-bite {
+    position: relative !important;
+    display: inline-block !important;
+    background: inherit !important; /* Pulls the gradient from the parent! */
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    margin: 0 1px !important;
+}
+
+/* The literal "bite" out of the letter O */
+.nosh-bite::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -2px !important;
+    right: -4px !important;
+    width: 14px !important;
+    height: 14px !important;
+    background-color: #ffffff !important; /* Matches Light Mode Header */
+    border-radius: 50% !important;
+}
+
+/* 3. Flawless Dark Mode Adaptation */
+[data-theme="dark"] .nosh-bite::after {
+    background-color: var(--card-bg) !important; /* Matches the dark header perfectly */
+}
