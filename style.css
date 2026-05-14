@@ -1160,3 +1160,27 @@ input:checked + .slider:before { transform: translateX(26px); content: "🌙"; b
     width: 20px !important;
     height: 20px !important;
 }
+/* =======================================================
+   🌙 FINAL DARK MODE: HEADER, NAV & LOGO OVERRIDE
+   ======================================================= */
+/* 1. Force Header and Bottom Nav to turn dark */
+[data-theme="dark"] .ultra-header,
+[data-theme="dark"] .mobile-app-nav {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* 2. Force the "CRAV" text to turn white so it doesn't vanish */
+[data-theme="dark"] .logo-text-crav {
+    color: #ffffff !important;
+}
+
+/* 3. Make sure the Bottom Nav text turns light gray instead of staying dark */
+[data-theme="dark"] .mobile-app-nav .app-nav-item span {
+    color: var(--text-muted) !important;
+}
+
+/* 4. Keep the active Bottom Nav icon strictly orange */
+[data-theme="dark"] .mobile-app-nav .app-nav-item.active span {
+    color: var(--primary) !important;
+}
