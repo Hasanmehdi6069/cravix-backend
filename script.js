@@ -843,6 +843,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 2. 🟢 THE FIX: Pull Local Admin Data and Merge it!
                 const localAdminData = JSON.parse(localStorage.getItem('cravix_restaurants')) || [];
                 allData = [...allData, ...localAdminData]; // Merges local Taco Bell with live Burger King
+
+
+                // 1. PRELOAD DATA FOR INSTANT SEARCH!
+        let globalSearchMemory = [];
+        async function prefetchSearchData() {
+            try {
+                const res = await fetch(`${API_BASE_URL}/api/restaurants`);
+                const result = await res.json();
+                if (result.success) globalSearchMemory = result.data;
+            } catch (err) { console.warn("Backend sleeping. Search might be slow."); }
+        }
+        prefetchSearchData(); // Runs silently when page loads
+
+        // 2. INSTANT LIVE SEARCH
+        masterSearchInput.addEventListener('input', (e) => {
+            executeMegaSearch(e.target.value.trim()); // No more setTimeout delay!
+        });
+
+        function executeMegaSearch(query) {
+            const brandsDiv = document.getElementById('brands-results');
+            const dishesDiv = document.getElementById('dishes-results');
+            const noResultsMsg = document.getElementById('no-results-msg');
+            brandsDiv.innerHTML = ''; dishesDiv.innerHTML = '';
+
+            if (!query || globalSearchMemory.length === 0) return;
+
+            const q = query.toLowerCase();
+            let matchedBrands = []; let matchedDishes = [];
+
+            // Instantly filter from memory
+            globalSearchMemory.forEach(rest => {
+                if (rest.name.toLowerCase().includes(q) || rest.tags.toLowerCase().includes(q)) matchedBrands.push(rest);
+                if (rest.menu) {
+                    Object.values(rest.menu).forEach(cat => cat.forEach(dish => {
+                        if (dish.name.toLowerCase().includes(q) || dish.desc.toLowerCase().includes(q)) {
+                            matchedDishes.push({ ...dish, restId: rest.idKey, restName: rest.name });
+                        }
+                    }));
+                }
+            });
+
+            // (Keep your existing HTML rendering loops for matchedBrands and matchedDishes here)
+            // ...
+        }
                 // ==========================================
                 // 🛡️ INDESTRUCTIBLE SEARCH ALGORITHM
                 // ==========================================
@@ -1299,3 +1343,41 @@ async function loadTopBrands() {
 
 // Run this when the homepage loads
 document.addEventListener('DOMContentLoaded', loadTopBrands);
+
+
+
+// --- DYNAMIC PRODUCT PAGE ENGINE ---
+    const prodNameEl = document.getElementById('prod-name');
+    if (prodNameEl) {
+        // Read the URL to see what food was clicked
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get('name') || 'Classic Cheese Burger';
+        const price = params.get('price') || '199';
+        const rest = params.get('rest') || 'Burger King';
+        const img = params.get('img') || 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1899&auto=format&fit=crop';
+        
+        // Inject the data into the HTML
+        document.getElementById('prod-name').innerText = name;
+        document.getElementById('prod-price').innerText = `₹${price}`;
+        document.getElementById('prod-rest').innerText = rest;
+        document.getElementById('prod-img').src = img;
+
+        const addBtn = document.getElementById('add-to-cart-standalone');
+        if (addBtn) {
+            // Remove old listeners by cloning (to prevent duplicates)
+            const newBtn = addBtn.cloneNode(true);
+            addBtn.parentNode.replaceChild(newBtn, addBtn);
+            
+            newBtn.addEventListener('click', function() {
+                let cartMemory = JSON.parse(localStorage.getItem('cravixCart')) || [];
+                cartMemory.push({ name: name, price: parseInt(price), qty: 1, isVeg: false });
+                localStorage.setItem('cravixCart', JSON.stringify(cartMemory));
+                
+                localStorage.setItem('cravixCurrentRest', JSON.stringify({ id: rest.toLowerCase().replace(/\s+/g, ''), name: rest, logo: '🍽️' }));
+
+                this.innerHTML = "✓ ADDED TO CART";
+                this.style.background = "#111";
+                setTimeout(() => { window.location.href = 'Cart.html'; }, 800);
+            });
+        }
+    }

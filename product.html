@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Cravix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="ultra-body">
+    <header class="ultra-header" style="padding: 15px;">
+        <a href="javascript:history.back()" style="font-size: 24px; color: var(--text-main); font-weight: 900; text-decoration: none;">← Back</a>
+    </header>
+
+    <main class="main-wrapper" style="max-width: 600px; padding: 20px;">
+        <div style="width: 100%; height: 300px; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); margin-bottom: 25px;">
+            <img id="prod-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1899&auto=format&fit=crop" style="width: 100%; height: 100%; object-fit: cover;" alt="Product">
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+            <div>
+                <span class="veg-badge non-veg" style="margin-bottom: 8px;"></span>
+                <h1 id="prod-name" style="font-size: 28px; font-weight: 900; color: var(--text-main);">Classic Cheese Burger</h1>
+                <p id="prod-rest" style="color: var(--primary); font-weight: 700; font-size: 16px;">Burger King</p>
+            </div>
+            <h2 id="prod-price" style="font-size: 28px; font-weight: 900; color: var(--text-main);">₹199</h2>
+        </div>
+
+        <p id="prod-desc" style="color: var(--text-muted); font-size: 15px; line-height: 1.6; margin-bottom: 30px;">Signature beef patty with melted cheddar, fresh lettuce, and our secret sauce, all housed in a toasted sesame bun.</p>
+        
+        <button id="add-to-cart-standalone" style="width: 100%; background: #28a745; color: white; border: none; padding: 18px; border-radius: 16px; font-size: 18px; font-weight: 800; cursor: pointer; box-shadow: 0 10px 25px rgba(40,167,69,0.3);">ADD TO CART +</button>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple logic to fake adding to cart from this standalone page
+        document.getElementById('add-to-cart-standalone').addEventListener('click', function() {
+            let cartMemory = JSON.parse(localStorage.getItem('cravixCart')) || [];
+            cartMemory.push({ name: "Classic Cheese Burger", price: 199, qty: 1, isVeg: false });
+            localStorage.setItem('cravixCart', JSON.stringify(cartMemory));
+            this.innerHTML = "✓ ADDED";
+            this.style.background = "#111";
+            setTimeout(() => { window.location.href = 'Cart.html'; }, 800);
+        });
+    </script>
+</body>
+</html>

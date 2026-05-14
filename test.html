@@ -168,3 +168,134 @@ mongoose.connect(process.env.MONGO_URI)
     .catch(err => {
         console.error('🔴 Injection Failed:', err);
     });
+
+
+    
+    /* =======================================================
+       📱 FINAL MOBILE POLISH (HEADER, MODAL, CART)
+       ======================================================= */
+
+    /* 1. MOBILE HEADER: LOGO LEFT, TOGGLE RIGHT, SEARCH BOTTOM */
+    .header-content { 
+        flex-direction: row !important; 
+        flex-wrap: wrap !important; 
+        justify-content: space-between !important; 
+        align-items: center !important; 
+    }
+    .logo-link { flex: 1 !important; margin: 0 !important; }
+    .ultra-actions { display: flex !important; width: auto !important; margin: 0 !important; }
+    .ultra-actions .icon-btn { display: none !important; } /* Hides desktop icons */
+    .theme-switch { display: block !important; margin: 0 !important; transform: scale(0.85); }
+    .ultra-search { width: 100% !important; order: 3 !important; margin-top: 12px !important; }
+
+   
+    /* 3. CART DELIVERY ADDRESS PERFECT ALIGNMENT */
+    .step-header { 
+        flex-direction: row !important; 
+        align-items: center !important; 
+        flex-wrap: wrap !important; 
+        gap: 10px !important;
+    }
+    .step-icon { margin: 0 !important; display: inline-flex !important; }
+    .step-title { display: inline-flex !important; align-items: center !important; margin: 0 !important; flex: 1; }
+    .step-title h3 { margin: 0 0 0 10px !important; }
+    .add-new-address-btn { 
+        position: relative !important; 
+        margin: 10px 0 0 0 !important; 
+        width: 60% !important; 
+        text-align: center !important; 
+        padding: 12px !important; 
+        background: var(--primary-light) !important; 
+        color: var(--primary) !important; 
+        border-radius: 8px !important; 
+    }
+
+
+    /* =======================================================
+       📱 THE FINAL FLAWLESS MOBILE PATCH 
+       ======================================================= */
+    
+    /* 1. DESKTOP LOGO FIX (Forces horizontal alignment everywhere) */
+    .logo { display: flex !important; flex-direction: row !important; align-items: center !important; gap: 8px !important; }
+
+    /* 2. FIX "ADD NEW +" BRICK */
+    .add-new-address-btn {
+        width: fit-content !important; /* Kills the wide brick */
+        padding: 6px 14px !important;
+        margin-top: 5px !important;
+        margin-left: 0 !important;
+        display: inline-block !important;
+    }
+
+    /* =======================================================
+   🔐 THE VIP HORIZONTAL MOBILE MODAL
+   ======================================================= */
+@media (max-width: 768px) {
+    /* 1. Float it perfectly in the center */
+    #auth-modal {
+        align-items: center !important; /* Pulls it up from the bottom */
+        padding: 15px !important;
+    }
+    
+    /* 2. Horizontal Magic & Rounded Corners (Folded Bottom) */
+    .auth-modal-content {
+        flex-direction: row !important; /* Forces Horizontal Layout! */
+        width: 95vw !important;
+        max-width: 420px !important;
+        height: auto !important;
+        min-height: 380px !important;
+        border-radius: 24px !important; /* Folds ALL corners perfectly */
+        margin: 0 auto !important;
+        overflow: hidden !important;
+    }
+
+    /* 3. Image on the Left */
+    .auth-left {
+        width: 38% !important; /* Takes up the left side */
+        height: auto !important;
+        min-height: 100% !important;
+        padding: 0 !important;
+    }
+    /* Hide text on the image so the pizza looks super clean */
+    .auth-glass-panel { display: none !important; } 
+    
+    /* 4. Form on the Right (Left-Aligned Text) */
+    .auth-right {
+        width: 62% !important;
+        padding: 25px 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: flex-start !important; /* Locks everything to the left */
+    }
+
+    /* Strict Left Alignment */
+    .auth-step { width: 100% !important; text-align: left !important; }
+    .auth-step h3 { font-size: 20px !important; text-align: left !important; margin-bottom: 2px !important; }
+    .auth-subtitle { font-size: 12px !important; text-align: left !important; margin-bottom: 20px !important; }
+    .auth-terms { text-align: left !important; font-size: 10px !important; margin-top: 15px !important; }
+    
+    /* Resize inputs to fit the sleek horizontal card */
+    .input-group input { padding: 12px !important; font-size: 13px !important; }
+    .auth-action-btn, .google-auth-btn { padding: 12px !important; font-size: 14px !important; }
+
+    /* Dark X Button for the white background */
+    #closeAuthModal, .close-modal {
+        top: 10px !important;
+        right: 10px !important;
+        background: #f4f5f7 !important;
+        color: #111 !important;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 16px !important;
+    }
+    /* 2. GOOGLE BUTTON OVERFLOW & MODAL SQUISH FIX */
+    .auth-right { padding: 20px 15px !important; justify-content: flex-start !important; }
+    #google-btn-container { 
+        transform: scale(0.8); /* Shrinks the Google iframe to fit perfectly */
+        transform-origin: left center; 
+        width: 140% !important; 
+        margin-bottom: 5px !important; 
+    }
+  }
+}
